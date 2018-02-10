@@ -9,5 +9,6 @@ namespace SP3BLL.ViewBLL
     public sealed class ProjetosPessoasInformacoesCompletas : SP3Model.ProjetoPessoa
     {
         public string NomePessoa { get { return base.Pessoa.NOME; } }
+        public string NomeProjeto { get { return base.Projeto.NOME; } }
     }
 }

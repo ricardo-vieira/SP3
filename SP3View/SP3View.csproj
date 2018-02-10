@@ -64,6 +64,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\SP3BLL.ViewBLL.ProjetosPessoasInformacoesCompletas.datasource" />
     <None Include="Properties\DataSources\SP3Model.Projeto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
