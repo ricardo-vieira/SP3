@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SP3DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="255" />
+          <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="DATACRIACAO" Type="datetime" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Projeto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESCRICAO" Type="text" />
+          <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="IDGERENTE" Type="bigint" />
+          <Property Name="DATACRIACAO" Type="datetime" />
+          <Property Name="INVESTIMENTOPREVISTO" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="RECEITACONSTANTE" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="RAZAORECEITAVALOR" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="RAZAORECEITAPERCENTUAL" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="TEMPOPREVISTOCONCLUSAODIAS" Type="bigint" />
+          <Property Name="STATUS" Type="tinyint" />
+          <Property Name="CAPACIDADEENTREGAEQUIPE" Type="int" />
+          <Property Name="APOIOALTAGESTAO" Type="int" />
+          <Property Name="APOIOSTEAKHOLDERS" Type="int" />
+          <Property Name="ESFORCOADICIONAL" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjetoPessoa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDPROJETO" Type="bigint" />
+          <Property Name="IDPESSOA" Type="bigint" />
+          <Property Name="DATAINGRESSO" Type="date" />
+          <Property Name="OCUPACAO" Type="varchar" MaxLength="50" />
+          <Property Name="OBSERVACOES" Type="text" />
+        </EntityType>
+        <Association Name="FK__Projeto__IDGEREN__5070F446">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Projeto">
+              <PropertyRef Name="IDGERENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjetoPe__IDPES__534D60F1">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+          <End Role="ProjetoPessoa" Type="Self.ProjetoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProjetoPessoa">
+              <PropertyRef Name="IDPESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjetoPe__IDPRO__5441852A">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="0..1" />
+          <End Role="ProjetoPessoa" Type="Self.ProjetoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProjetoPessoa">
+              <PropertyRef Name="IDPROJETO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SP3DBModelStoreContainer">
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="Cadastro" store:Type="Tables" />
+          <EntitySet Name="Projeto" EntityType="Self.Projeto" Schema="Cadastro" store:Type="Tables" />
+          <EntitySet Name="ProjetoPessoa" EntityType="Self.ProjetoPessoa" Schema="Cadastro" store:Type="Tables" />
+          <AssociationSet Name="FK__Projeto__IDGEREN__5070F446" Association="Self.FK__Projeto__IDGEREN__5070F446">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Projeto" EntitySet="Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjetoPe__IDPES__534D60F1" Association="Self.FK__ProjetoPe__IDPES__534D60F1">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="ProjetoPessoa" EntitySet="ProjetoPessoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjetoPe__IDPRO__5441852A" Association="Self.FK__ProjetoPe__IDPRO__5441852A">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="ProjetoPessoa" EntitySet="ProjetoPessoa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SP3DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SP3DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pessoa" EntityType="SP3DBModel.Pessoa" />
+          <EntitySet Name="Projeto" EntityType="SP3DBModel.Projeto" />
+          <EntitySet Name="ProjetoPessoa" EntityType="SP3DBModel.ProjetoPessoa" />
+          <AssociationSet Name="FK__Projeto__IDGEREN__5070F446" Association="SP3DBModel.FK__Projeto__IDGEREN__5070F446">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Projeto" EntitySet="Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjetoPe__IDPES__534D60F1" Association="SP3DBModel.FK__ProjetoPe__IDPES__534D60F1">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="ProjetoPessoa" EntitySet="ProjetoPessoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjetoPe__IDPRO__5441852A" Association="SP3DBModel.FK__ProjetoPe__IDPRO__5441852A">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="ProjetoPessoa" EntitySet="ProjetoPessoa" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="Byte" />
+          <NavigationProperty Name="Projeto" Relationship="SP3DBModel.FK__Projeto__IDGEREN__5070F446" FromRole="Pessoa" ToRole="Projeto" />
+          <NavigationProperty Name="ProjetoPessoa" Relationship="SP3DBModel.FK__ProjetoPe__IDPES__534D60F1" FromRole="Pessoa" ToRole="ProjetoPessoa" />
+        </EntityType>
+        <EntityType Name="Projeto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IDGERENTE" Type="Int64" />
+          <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+          <Property Name="INVESTIMENTOPREVISTO" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="RECEITACONSTANTE" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="RAZAORECEITAVALOR" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="RAZAORECEITAPERCENTUAL" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="TEMPOPREVISTOCONCLUSAODIAS" Type="Int64" />
+          <Property Name="STATUS" Type="Byte" />
+          <Property Name="CAPACIDADEENTREGAEQUIPE" Type="Int32" />
+          <Property Name="APOIOALTAGESTAO" Type="Int32" />
+          <Property Name="APOIOSTEAKHOLDERS" Type="Int32" />
+          <Property Name="ESFORCOADICIONAL" Type="Int32" />
+          <NavigationProperty Name="Pessoa" Relationship="SP3DBModel.FK__Projeto__IDGEREN__5070F446" FromRole="Projeto" ToRole="Pessoa" />
+          <NavigationProperty Name="ProjetoPessoa" Relationship="SP3DBModel.FK__ProjetoPe__IDPRO__5441852A" FromRole="Projeto" ToRole="ProjetoPessoa" />
+        </EntityType>
+        <EntityType Name="ProjetoPessoa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPROJETO" Type="Int64" />
+          <Property Name="IDPESSOA" Type="Int64" />
+          <Property Name="DATAINGRESSO" Type="DateTime" Precision="0" />
+          <Property Name="OCUPACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pessoa" Relationship="SP3DBModel.FK__ProjetoPe__IDPES__534D60F1" FromRole="ProjetoPessoa" ToRole="Pessoa" />
+          <NavigationProperty Name="Projeto" Relationship="SP3DBModel.FK__ProjetoPe__IDPRO__5441852A" FromRole="ProjetoPessoa" ToRole="Projeto" />
+        </EntityType>
+        <Association Name="FK__Projeto__IDGEREN__5070F446">
+          <End Type="SP3DBModel.Pessoa" Role="Pessoa" Multiplicity="0..1" />
+          <End Type="SP3DBModel.Projeto" Role="Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Projeto">
+              <PropertyRef Name="IDGERENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjetoPe__IDPES__534D60F1">
+          <End Type="SP3DBModel.Pessoa" Role="Pessoa" Multiplicity="0..1" />
+          <End Type="SP3DBModel.ProjetoPessoa" Role="ProjetoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProjetoPessoa">
+              <PropertyRef Name="IDPESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjetoPe__IDPRO__5441852A">
+          <End Type="SP3DBModel.Projeto" Role="Projeto" Multiplicity="0..1" />
+          <End Type="SP3DBModel.ProjetoPessoa" Role="ProjetoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProjetoPessoa">
+              <PropertyRef Name="IDPROJETO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SP3DBModelStoreContainer" CdmEntityContainer="SP3DBEntities">
+          <EntitySetMapping Name="Pessoa">
+            <EntityTypeMapping TypeName="SP3DBModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projeto">
+            <EntityTypeMapping TypeName="SP3DBModel.Projeto">
+              <MappingFragment StoreEntitySet="Projeto">
+                <ScalarProperty Name="ESFORCOADICIONAL" ColumnName="ESFORCOADICIONAL" />
+                <ScalarProperty Name="APOIOSTEAKHOLDERS" ColumnName="APOIOSTEAKHOLDERS" />
+                <ScalarProperty Name="APOIOALTAGESTAO" ColumnName="APOIOALTAGESTAO" />
+                <ScalarProperty Name="CAPACIDADEENTREGAEQUIPE" ColumnName="CAPACIDADEENTREGAEQUIPE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TEMPOPREVISTOCONCLUSAODIAS" ColumnName="TEMPOPREVISTOCONCLUSAODIAS" />
+                <ScalarProperty Name="RAZAORECEITAPERCENTUAL" ColumnName="RAZAORECEITAPERCENTUAL" />
+                <ScalarProperty Name="RAZAORECEITAVALOR" ColumnName="RAZAORECEITAVALOR" />
+                <ScalarProperty Name="RECEITACONSTANTE" ColumnName="RECEITACONSTANTE" />
+                <ScalarProperty Name="INVESTIMENTOPREVISTO" ColumnName="INVESTIMENTOPREVISTO" />
+                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+                <ScalarProperty Name="IDGERENTE" ColumnName="IDGERENTE" />
+                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjetoPessoa">
+            <EntityTypeMapping TypeName="SP3DBModel.ProjetoPessoa">
+              <MappingFragment StoreEntitySet="ProjetoPessoa">
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="OCUPACAO" ColumnName="OCUPACAO" />
+                <ScalarProperty Name="DATAINGRESSO" ColumnName="DATAINGRESSO" />
+                <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
+                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
