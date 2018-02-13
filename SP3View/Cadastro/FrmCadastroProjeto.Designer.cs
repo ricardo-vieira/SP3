@@ -34,7 +34,6 @@
             System.Windows.Forms.Label dESCRICAOLabel;
             System.Windows.Forms.Label dATACRIACAOLabel;
             System.Windows.Forms.Label iDGERENTELabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroProjeto));
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label5;
@@ -43,6 +42,7 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroProjeto));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,40 +57,50 @@
             this.Localizar = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpInformacoes = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnGerente = new System.Windows.Forms.Button();
-            this.iDGERENTETextBox = new System.Windows.Forms.TextBox();
-            this.dATACRIACAOMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.dESCRICAOTextBox = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.nOMETextBox = new System.Windows.Forms.TextBox();
-            this.tbpPessoasProjetos = new System.Windows.Forms.TabPage();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.chkReceitaVariavel = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox4 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.cblEsforcoAdicional = new System.Windows.Forms.CheckedListBox();
+            this.cblApoioSteakHolders = new System.Windows.Forms.CheckedListBox();
+            this.cblApoioAltaGestao = new System.Windows.Forms.CheckedListBox();
+            this.cblCapacidadeEntregaEquipe = new System.Windows.Forms.CheckedListBox();
+            this.rbtCrestimentoPercentual = new System.Windows.Forms.RadioButton();
+            this.rbtCrescimentoFixo = new System.Windows.Forms.RadioButton();
+            this.txtCrescimentoFixo = new System.Windows.Forms.TextBox();
+            this.txtCrescimentoProporcional = new System.Windows.Forms.TextBox();
+            this.nudPrevisaoConclusao = new System.Windows.Forms.NumericUpDown();
+            this.txtReceitaFixa = new System.Windows.Forms.TextBox();
+            this.ckbPermitirReceitasVariaveis = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtInvestimentoPrevisto = new System.Windows.Forms.TextBox();
+            this.txtDataHoraAlteracao = new System.Windows.Forms.MaskedTextBox();
+            this.bsProjeto = new System.Windows.Forms.BindingSource(this.components);
+            this.txtNomeGerente = new System.Windows.Forms.TextBox();
+            this.btnLocalizarGerente = new System.Windows.Forms.Button();
+            this.txtIDGerente = new System.Windows.Forms.TextBox();
+            this.txtDataCriacao = new System.Windows.Forms.MaskedTextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.tbpPessoasProjetos = new System.Windows.Forms.TabPage();
+            this.dtgProjetoPessoa = new System.Windows.Forms.DataGridView();
+            this.bsProjetoPessoa = new System.Windows.Forms.BindingSource(this.components);
+            this.grbProjetosPessoasInformacoes = new System.Windows.Forms.GroupBox();
+            this.grbProjetosPessoasAcoes = new System.Windows.Forms.GroupBox();
+            this.btnProjetoPessoaExcluir = new System.Windows.Forms.Button();
+            this.btnProjetoPessoaAlterar = new System.Windows.Forms.Button();
+            this.btnPessoaProjetoIncluir = new System.Windows.Forms.Button();
             this.tbpReceitasVariaveis = new System.Windows.Forms.TabPage();
             this.tbpReunioes = new System.Windows.Forms.TabPage();
-            this.grbProjetosPessoasAcoes = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.grbProjetosPessoasInformacoes = new System.Windows.Forms.GroupBox();
-            this.projetoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projetosPessoasInformacoesCompletasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtgProjetosPessoasProjetosPrincipais = new System.Windows.Forms.DataGridView();
+            this.txtProjetoPessoaCodigo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnProjetoPessoaLocalizar = new System.Windows.Forms.Button();
+            this.txtProjetoPessoaNome = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtProjetoPessoaOcupacao = new System.Windows.Forms.TextBox();
+            this.dtpProjetoPessoaIngresso = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtProjetoPessoaObservacoes = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,8 +111,8 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetoPessoabtnEditar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetoPessoaBtnExcluir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgProjetoPessoabtnEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dtgProjetoPessoaBtnExcluir = new System.Windows.Forms.DataGridViewImageColumn();
             iDLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             dESCRICAOLabel = new System.Windows.Forms.Label();
@@ -119,14 +129,15 @@
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tbpInformacoes.SuspendLayout();
-            this.tbpPessoasProjetos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrevisaoConclusao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsProjeto)).BeginInit();
+            this.tbpPessoasProjetos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProjetoPessoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsProjetoPessoa)).BeginInit();
+            this.grbProjetosPessoasInformacoes.SuspendLayout();
             this.grbProjetosPessoasAcoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projetoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projetosPessoasInformacoesCompletasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProjetosPessoasProjetosPrincipais)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // iDLabel
@@ -178,6 +189,86 @@
             iDGERENTELabel.Size = new System.Drawing.Size(59, 16);
             iDGERENTELabel.TabIndex = 8;
             iDGERENTELabel.Text = "Gerente:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(651, 19);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(135, 16);
+            label1.TabIndex = 12;
+            label1.Text = "Data/Hora Alteração:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(6, 16);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(86, 32);
+            label2.TabIndex = 14;
+            label2.Text = "Investimento \r\nPrevisto:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(9, 223);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(81, 32);
+            label5.TabIndex = 21;
+            label5.Text = "Previsão de\r\nConclusão:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(197, 235);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(36, 16);
+            label6.TabIndex = 23;
+            label6.Text = "Dias";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(6, 22);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(140, 32);
+            label4.TabIndex = 27;
+            label4.Text = "Capacidade de \r\nentrega da Equipe:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Location = new System.Drawing.Point(170, 38);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(160, 16);
+            label7.TabIndex = 29;
+            label7.Text = "Apoio da Alta Gestão:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Location = new System.Drawing.Point(393, 22);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(107, 32);
+            label8.TabIndex = 31;
+            label8.Text = "Apoio dos \r\nSteakHolders:\r\n";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.Location = new System.Drawing.Point(623, 38);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(134, 16);
+            label9.TabIndex = 33;
+            label9.Text = "Esforço Adicional:";
             // 
             // toolStrip1
             // 
@@ -293,6 +384,7 @@
             this.tabControl1.Controls.Add(this.tbpReceitasVariaveis);
             this.tabControl1.Controls.Add(this.tbpReunioes);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 57);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -304,269 +396,41 @@
             this.tbpInformacoes.AutoScroll = true;
             this.tbpInformacoes.BackColor = System.Drawing.Color.White;
             this.tbpInformacoes.Controls.Add(this.groupBox2);
-            this.tbpInformacoes.Controls.Add(this.groupBox1);
-            this.tbpInformacoes.Controls.Add(this.numericUpDown1);
+            this.tbpInformacoes.Controls.Add(this.nudPrevisaoConclusao);
             this.tbpInformacoes.Controls.Add(label6);
             this.tbpInformacoes.Controls.Add(label5);
-            this.tbpInformacoes.Controls.Add(this.textBox3);
-            this.tbpInformacoes.Controls.Add(this.chkReceitaVariavel);
-            this.tbpInformacoes.Controls.Add(this.label3);
-            this.tbpInformacoes.Controls.Add(this.textBox2);
-            this.tbpInformacoes.Controls.Add(label2);
-            this.tbpInformacoes.Controls.Add(this.maskedTextBox1);
+            this.tbpInformacoes.Controls.Add(this.txtDataHoraAlteracao);
             this.tbpInformacoes.Controls.Add(label1);
-            this.tbpInformacoes.Controls.Add(this.textBox1);
-            this.tbpInformacoes.Controls.Add(this.btnGerente);
+            this.tbpInformacoes.Controls.Add(this.txtNomeGerente);
+            this.tbpInformacoes.Controls.Add(this.btnLocalizarGerente);
             this.tbpInformacoes.Controls.Add(iDGERENTELabel);
-            this.tbpInformacoes.Controls.Add(this.iDGERENTETextBox);
-            this.tbpInformacoes.Controls.Add(this.dATACRIACAOMaskedTextBox);
+            this.tbpInformacoes.Controls.Add(this.txtIDGerente);
+            this.tbpInformacoes.Controls.Add(this.txtDataCriacao);
             this.tbpInformacoes.Controls.Add(dATACRIACAOLabel);
             this.tbpInformacoes.Controls.Add(dESCRICAOLabel);
-            this.tbpInformacoes.Controls.Add(this.dESCRICAOTextBox);
+            this.tbpInformacoes.Controls.Add(this.txtDescricao);
             this.tbpInformacoes.Controls.Add(iDLabel);
             this.tbpInformacoes.Controls.Add(this.txtID);
             this.tbpInformacoes.Controls.Add(nOMELabel);
-            this.tbpInformacoes.Controls.Add(this.nOMETextBox);
-            this.tbpInformacoes.Location = new System.Drawing.Point(4, 25);
+            this.tbpInformacoes.Controls.Add(this.txtNome);
+            this.tbpInformacoes.Controls.Add(this.groupBox3);
+            this.tbpInformacoes.Location = new System.Drawing.Point(4, 28);
             this.tbpInformacoes.Name = "tbpInformacoes";
             this.tbpInformacoes.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpInformacoes.Size = new System.Drawing.Size(1000, 515);
+            this.tbpInformacoes.Size = new System.Drawing.Size(1000, 512);
             this.tbpInformacoes.TabIndex = 0;
             this.tbpInformacoes.Text = "Informações Principais";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(200, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(792, 22);
-            this.textBox1.TabIndex = 11;
-            // 
-            // btnGerente
-            // 
-            this.btnGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerente.Location = new System.Drawing.Point(161, 192);
-            this.btnGerente.Name = "btnGerente";
-            this.btnGerente.Size = new System.Drawing.Size(32, 22);
-            this.btnGerente.TabIndex = 10;
-            this.btnGerente.Text = "...";
-            this.btnGerente.UseVisualStyleBackColor = true;
-            // 
-            // iDGERENTETextBox
-            // 
-            this.iDGERENTETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projetoBindingSource, "IDGERENTE", true));
-            this.iDGERENTETextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iDGERENTETextBox.Location = new System.Drawing.Point(99, 192);
-            this.iDGERENTETextBox.Name = "iDGERENTETextBox";
-            this.iDGERENTETextBox.Size = new System.Drawing.Size(56, 22);
-            this.iDGERENTETextBox.TabIndex = 9;
-            // 
-            // dATACRIACAOMaskedTextBox
-            // 
-            this.dATACRIACAOMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projetoBindingSource, "DATACRIACAO", true));
-            this.dATACRIACAOMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dATACRIACAOMaskedTextBox.Location = new System.Drawing.Point(408, 18);
-            this.dATACRIACAOMaskedTextBox.Name = "dATACRIACAOMaskedTextBox";
-            this.dATACRIACAOMaskedTextBox.Size = new System.Drawing.Size(200, 22);
-            this.dATACRIACAOMaskedTextBox.TabIndex = 8;
-            // 
-            // dESCRICAOTextBox
-            // 
-            this.dESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projetoBindingSource, "DESCRICAO", true));
-            this.dESCRICAOTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dESCRICAOTextBox.Location = new System.Drawing.Point(99, 72);
-            this.dESCRICAOTextBox.Multiline = true;
-            this.dESCRICAOTextBox.Name = "dESCRICAOTextBox";
-            this.dESCRICAOTextBox.Size = new System.Drawing.Size(893, 114);
-            this.dESCRICAOTextBox.TabIndex = 5;
-            // 
-            // txtID
-            // 
-            this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projetoBindingSource, "ID", true));
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(99, 16);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(94, 22);
-            this.txtID.TabIndex = 3;
-            // 
-            // nOMETextBox
-            // 
-            this.nOMETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projetoBindingSource, "NOME", true));
-            this.nOMETextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nOMETextBox.Location = new System.Drawing.Point(99, 44);
-            this.nOMETextBox.Name = "nOMETextBox";
-            this.nOMETextBox.Size = new System.Drawing.Size(893, 22);
-            this.nOMETextBox.TabIndex = 1;
-            // 
-            // tbpPessoasProjetos
-            // 
-            this.tbpPessoasProjetos.AutoScroll = true;
-            this.tbpPessoasProjetos.BackColor = System.Drawing.Color.White;
-            this.tbpPessoasProjetos.Controls.Add(this.dtgProjetosPessoasProjetosPrincipais);
-            this.tbpPessoasProjetos.Controls.Add(this.grbProjetosPessoasInformacoes);
-            this.tbpPessoasProjetos.Controls.Add(this.grbProjetosPessoasAcoes);
-            this.tbpPessoasProjetos.Location = new System.Drawing.Point(4, 25);
-            this.tbpPessoasProjetos.Name = "tbpPessoasProjetos";
-            this.tbpPessoasProjetos.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPessoasProjetos.Size = new System.Drawing.Size(1000, 515);
-            this.tbpPessoasProjetos.TabIndex = 1;
-            this.tbpPessoasProjetos.Text = "Pessoas do Projeto";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projetoBindingSource, "DATACRIACAO", true));
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(792, 16);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(200, 22);
-            this.maskedTextBox1.TabIndex = 13;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(662, 17);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(135, 16);
-            label1.TabIndex = 12;
-            label1.Text = "Data/Hora Alteração:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(9, 217);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(86, 32);
-            label2.TabIndex = 14;
-            label2.Text = "Investimento \r\nPrevisto:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(99, 227);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 20);
-            this.textBox2.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(286, 258);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 16);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Receita Fixa:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(378, 258);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(105, 20);
-            this.textBox3.TabIndex = 17;
-            // 
-            // chkReceitaVariavel
-            // 
-            this.chkReceitaVariavel.AutoSize = true;
-            this.chkReceitaVariavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkReceitaVariavel.Location = new System.Drawing.Point(99, 258);
-            this.chkReceitaVariavel.Name = "chkReceitaVariavel";
-            this.chkReceitaVariavel.Size = new System.Drawing.Size(181, 20);
-            this.chkReceitaVariavel.TabIndex = 16;
-            this.chkReceitaVariavel.Text = "Permitir receitas variáveis";
-            this.chkReceitaVariavel.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(9, 324);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(81, 32);
-            label5.TabIndex = 21;
-            label5.Text = "Previsão de\r\nConclusão:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(199, 336);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(36, 16);
-            label6.TabIndex = 23;
-            label6.Text = "Dias";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(99, 334);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(94, 22);
-            this.numericUpDown1.TabIndex = 24;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Location = new System.Drawing.Point(489, 242);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(328, 76);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(222, 17);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 0;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(222, 43);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 1;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(132, 20);
-            this.radioButton1.TabIndex = 26;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Crescimento Fixo:";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(6, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(191, 20);
-            this.radioButton2.TabIndex = 27;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Crescimento Percentual(%):";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(label9);
-            this.groupBox2.Controls.Add(this.checkedListBox2);
+            this.groupBox2.Controls.Add(this.cblEsforcoAdicional);
             this.groupBox2.Controls.Add(label8);
-            this.groupBox2.Controls.Add(this.checkedListBox4);
+            this.groupBox2.Controls.Add(this.cblApoioSteakHolders);
             this.groupBox2.Controls.Add(label7);
-            this.groupBox2.Controls.Add(this.checkedListBox3);
+            this.groupBox2.Controls.Add(this.cblApoioAltaGestao);
             this.groupBox2.Controls.Add(label4);
-            this.groupBox2.Controls.Add(this.checkedListBox1);
+            this.groupBox2.Controls.Add(this.cblCapacidadeEntregaEquipe);
             this.groupBox2.Location = new System.Drawing.Point(12, 374);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(805, 135);
@@ -574,183 +438,248 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "D. I. C. E.";
             // 
-            // checkedListBox1
+            // cblEsforcoAdicional
             // 
-            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Muito Bom",
-            "Bom",
-            "Médio",
-            "Pobre"});
-            this.checkedListBox1.Location = new System.Drawing.Point(9, 57);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(119, 72);
-            this.checkedListBox1.TabIndex = 0;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(6, 22);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(122, 32);
-            label4.TabIndex = 27;
-            label4.Text = "Capacidade de \r\nentrega da Equipe:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(170, 38);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(139, 16);
-            label7.TabIndex = 29;
-            label7.Text = "Apoio da Alta Gestão:";
-            // 
-            // checkedListBox3
-            // 
-            this.checkedListBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox3.FormattingEnabled = true;
-            this.checkedListBox3.Items.AddRange(new object[] {
-            "Apoio Formal e Total",
-            "Desejam Sucesso",
-            "Neutro",
-            "Relutantes"});
-            this.checkedListBox3.Location = new System.Drawing.Point(173, 57);
-            this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(164, 72);
-            this.checkedListBox3.TabIndex = 28;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.Location = new System.Drawing.Point(393, 22);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(94, 32);
-            label8.TabIndex = 31;
-            label8.Text = "Apoio dos \r\nSteakHolders:\r\n";
-            // 
-            // checkedListBox4
-            // 
-            this.checkedListBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox4.FormattingEnabled = true;
-            this.checkedListBox4.Items.AddRange(new object[] {
-            "Ancioso",
-            "Dispostos",
-            "Relutantes",
-            "Fortemente Relutantes"});
-            this.checkedListBox4.Location = new System.Drawing.Point(396, 57);
-            this.checkedListBox4.Name = "checkedListBox4";
-            this.checkedListBox4.Size = new System.Drawing.Size(164, 72);
-            this.checkedListBox4.TabIndex = 30;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.Location = new System.Drawing.Point(623, 38);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(116, 16);
-            label9.TabIndex = 33;
-            label9.Text = "Esforço Adicional:";
-            // 
-            // checkedListBox2
-            // 
-            this.checkedListBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
+            this.cblEsforcoAdicional.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cblEsforcoAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cblEsforcoAdicional.FormattingEnabled = true;
+            this.cblEsforcoAdicional.Items.AddRange(new object[] {
             "Até 10%",
             "Entre 10% e 20%",
             "Entre 20% e 40%",
             "Acima de 40% "});
-            this.checkedListBox2.Location = new System.Drawing.Point(626, 61);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(134, 72);
-            this.checkedListBox2.TabIndex = 32;
+            this.cblEsforcoAdicional.Location = new System.Drawing.Point(626, 57);
+            this.cblEsforcoAdicional.Name = "cblEsforcoAdicional";
+            this.cblEsforcoAdicional.Size = new System.Drawing.Size(134, 68);
+            this.cblEsforcoAdicional.TabIndex = 32;
             // 
-            // tbpReceitasVariaveis
+            // cblApoioSteakHolders
             // 
-            this.tbpReceitasVariaveis.Location = new System.Drawing.Point(4, 25);
-            this.tbpReceitasVariaveis.Name = "tbpReceitasVariaveis";
-            this.tbpReceitasVariaveis.Size = new System.Drawing.Size(1000, 515);
-            this.tbpReceitasVariaveis.TabIndex = 2;
-            this.tbpReceitasVariaveis.Text = "Receitas Variáveis";
-            this.tbpReceitasVariaveis.UseVisualStyleBackColor = true;
+            this.cblApoioSteakHolders.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cblApoioSteakHolders.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cblApoioSteakHolders.FormattingEnabled = true;
+            this.cblApoioSteakHolders.Items.AddRange(new object[] {
+            "Ancioso",
+            "Dispostos",
+            "Relutantes",
+            "Fortemente Relutantes"});
+            this.cblApoioSteakHolders.Location = new System.Drawing.Point(396, 57);
+            this.cblApoioSteakHolders.Name = "cblApoioSteakHolders";
+            this.cblApoioSteakHolders.Size = new System.Drawing.Size(164, 68);
+            this.cblApoioSteakHolders.TabIndex = 30;
             // 
-            // tbpReunioes
+            // cblApoioAltaGestao
             // 
-            this.tbpReunioes.Location = new System.Drawing.Point(4, 25);
-            this.tbpReunioes.Name = "tbpReunioes";
-            this.tbpReunioes.Size = new System.Drawing.Size(1000, 515);
-            this.tbpReunioes.TabIndex = 3;
-            this.tbpReunioes.Text = "Reuniões do Projeto";
-            this.tbpReunioes.UseVisualStyleBackColor = true;
+            this.cblApoioAltaGestao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cblApoioAltaGestao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cblApoioAltaGestao.FormattingEnabled = true;
+            this.cblApoioAltaGestao.Items.AddRange(new object[] {
+            "Apoio Formal e Total",
+            "Desejam Sucesso",
+            "Neutro",
+            "Relutantes"});
+            this.cblApoioAltaGestao.Location = new System.Drawing.Point(173, 57);
+            this.cblApoioAltaGestao.Name = "cblApoioAltaGestao";
+            this.cblApoioAltaGestao.Size = new System.Drawing.Size(164, 68);
+            this.cblApoioAltaGestao.TabIndex = 28;
             // 
-            // grbProjetosPessoasAcoes
+            // cblCapacidadeEntregaEquipe
             // 
-            this.grbProjetosPessoasAcoes.Controls.Add(this.button3);
-            this.grbProjetosPessoasAcoes.Controls.Add(this.button2);
-            this.grbProjetosPessoasAcoes.Controls.Add(this.button1);
-            this.grbProjetosPessoasAcoes.Location = new System.Drawing.Point(8, 6);
-            this.grbProjetosPessoasAcoes.Name = "grbProjetosPessoasAcoes";
-            this.grbProjetosPessoasAcoes.Size = new System.Drawing.Size(126, 112);
-            this.grbProjetosPessoasAcoes.TabIndex = 0;
-            this.grbProjetosPessoasAcoes.TabStop = false;
-            this.grbProjetosPessoasAcoes.Text = "Ações";
+            this.cblCapacidadeEntregaEquipe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cblCapacidadeEntregaEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cblCapacidadeEntregaEquipe.FormattingEnabled = true;
+            this.cblCapacidadeEntregaEquipe.Items.AddRange(new object[] {
+            "Muito Bom",
+            "Bom",
+            "Médio",
+            "Pobre"});
+            this.cblCapacidadeEntregaEquipe.Location = new System.Drawing.Point(9, 57);
+            this.cblCapacidadeEntregaEquipe.Name = "cblCapacidadeEntregaEquipe";
+            this.cblCapacidadeEntregaEquipe.Size = new System.Drawing.Size(119, 68);
+            this.cblCapacidadeEntregaEquipe.TabIndex = 0;
             // 
-            // button1
+            // rbtCrestimentoPercentual
             // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rbtCrestimentoPercentual.AutoSize = true;
+            this.rbtCrestimentoPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtCrestimentoPercentual.Location = new System.Drawing.Point(456, 77);
+            this.rbtCrestimentoPercentual.Name = "rbtCrestimentoPercentual";
+            this.rbtCrestimentoPercentual.Size = new System.Drawing.Size(191, 20);
+            this.rbtCrestimentoPercentual.TabIndex = 27;
+            this.rbtCrestimentoPercentual.TabStop = true;
+            this.rbtCrestimentoPercentual.Text = "Crescimento Percentual(%):";
+            this.rbtCrestimentoPercentual.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // rbtCrescimentoFixo
             // 
-            this.button2.Location = new System.Drawing.Point(6, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.rbtCrescimentoFixo.AutoSize = true;
+            this.rbtCrescimentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtCrescimentoFixo.Location = new System.Drawing.Point(456, 52);
+            this.rbtCrescimentoFixo.Name = "rbtCrescimentoFixo";
+            this.rbtCrescimentoFixo.Size = new System.Drawing.Size(132, 20);
+            this.rbtCrescimentoFixo.TabIndex = 26;
+            this.rbtCrescimentoFixo.TabStop = true;
+            this.rbtCrescimentoFixo.Text = "Crescimento Fixo:";
+            this.rbtCrescimentoFixo.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // txtCrescimentoFixo
             // 
-            this.button3.Location = new System.Drawing.Point(6, 77);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.txtCrescimentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrescimentoFixo.Location = new System.Drawing.Point(653, 50);
+            this.txtCrescimentoFixo.Name = "txtCrescimentoFixo";
+            this.txtCrescimentoFixo.Size = new System.Drawing.Size(146, 22);
+            this.txtCrescimentoFixo.TabIndex = 1;
             // 
-            // grbProjetosPessoasInformacoes
+            // txtCrescimentoProporcional
             // 
-            this.grbProjetosPessoasInformacoes.Location = new System.Drawing.Point(140, 6);
-            this.grbProjetosPessoasInformacoes.Name = "grbProjetosPessoasInformacoes";
-            this.grbProjetosPessoasInformacoes.Size = new System.Drawing.Size(852, 112);
-            this.grbProjetosPessoasInformacoes.TabIndex = 1;
-            this.grbProjetosPessoasInformacoes.TabStop = false;
-            this.grbProjetosPessoasInformacoes.Text = "Informações";
+            this.txtCrescimentoProporcional.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrescimentoProporcional.Location = new System.Drawing.Point(653, 76);
+            this.txtCrescimentoProporcional.Name = "txtCrescimentoProporcional";
+            this.txtCrescimentoProporcional.Size = new System.Drawing.Size(146, 22);
+            this.txtCrescimentoProporcional.TabIndex = 0;
             // 
-            // projetoBindingSource
+            // nudPrevisaoConclusao
             // 
-            this.projetoBindingSource.DataSource = typeof(SP3Model.Projeto);
+            this.nudPrevisaoConclusao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudPrevisaoConclusao.Location = new System.Drawing.Point(99, 233);
+            this.nudPrevisaoConclusao.Name = "nudPrevisaoConclusao";
+            this.nudPrevisaoConclusao.Size = new System.Drawing.Size(94, 22);
+            this.nudPrevisaoConclusao.TabIndex = 24;
+            this.nudPrevisaoConclusao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // projetosPessoasInformacoesCompletasBindingSource
+            // txtReceitaFixa
             // 
-            this.projetosPessoasInformacoesCompletasBindingSource.DataSource = typeof(SP3BLL.ViewBLL.ProjetosPessoasInformacoesCompletas);
+            this.txtReceitaFixa.Location = new System.Drawing.Point(285, 51);
+            this.txtReceitaFixa.Name = "txtReceitaFixa";
+            this.txtReceitaFixa.Size = new System.Drawing.Size(136, 22);
+            this.txtReceitaFixa.TabIndex = 17;
             // 
-            // dtgProjetosPessoasProjetosPrincipais
+            // ckbPermitirReceitasVariaveis
             // 
-            this.dtgProjetosPessoasProjetosPrincipais.AllowUserToAddRows = false;
-            this.dtgProjetosPessoasProjetosPrincipais.AllowUserToDeleteRows = false;
-            this.dtgProjetosPessoasProjetosPrincipais.AutoGenerateColumns = false;
-            this.dtgProjetosPessoasProjetosPrincipais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProjetosPessoasProjetosPrincipais.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ckbPermitirReceitasVariaveis.AutoSize = true;
+            this.ckbPermitirReceitasVariaveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbPermitirReceitasVariaveis.Location = new System.Drawing.Point(6, 53);
+            this.ckbPermitirReceitasVariaveis.Name = "ckbPermitirReceitasVariaveis";
+            this.ckbPermitirReceitasVariaveis.Size = new System.Drawing.Size(181, 20);
+            this.ckbPermitirReceitasVariaveis.TabIndex = 16;
+            this.ckbPermitirReceitasVariaveis.Text = "Permitir receitas variáveis";
+            this.ckbPermitirReceitasVariaveis.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(193, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Receita Fixa:";
+            // 
+            // txtInvestimentoPrevisto
+            // 
+            this.txtInvestimentoPrevisto.Location = new System.Drawing.Point(98, 21);
+            this.txtInvestimentoPrevisto.Name = "txtInvestimentoPrevisto";
+            this.txtInvestimentoPrevisto.Size = new System.Drawing.Size(170, 22);
+            this.txtInvestimentoPrevisto.TabIndex = 15;
+            // 
+            // txtDataHoraAlteracao
+            // 
+            this.txtDataHoraAlteracao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsProjeto, "DATACRIACAO", true));
+            this.txtDataHoraAlteracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataHoraAlteracao.Location = new System.Drawing.Point(792, 16);
+            this.txtDataHoraAlteracao.Name = "txtDataHoraAlteracao";
+            this.txtDataHoraAlteracao.Size = new System.Drawing.Size(200, 22);
+            this.txtDataHoraAlteracao.TabIndex = 13;
+            // 
+            // bsProjeto
+            // 
+            this.bsProjeto.DataSource = typeof(SP3Model.Projeto);
+            // 
+            // txtNomeGerente
+            // 
+            this.txtNomeGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeGerente.Location = new System.Drawing.Point(200, 192);
+            this.txtNomeGerente.Name = "txtNomeGerente";
+            this.txtNomeGerente.Size = new System.Drawing.Size(792, 22);
+            this.txtNomeGerente.TabIndex = 11;
+            // 
+            // btnLocalizarGerente
+            // 
+            this.btnLocalizarGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalizarGerente.Location = new System.Drawing.Point(161, 192);
+            this.btnLocalizarGerente.Name = "btnLocalizarGerente";
+            this.btnLocalizarGerente.Size = new System.Drawing.Size(32, 22);
+            this.btnLocalizarGerente.TabIndex = 10;
+            this.btnLocalizarGerente.Text = "...";
+            this.btnLocalizarGerente.UseVisualStyleBackColor = true;
+            // 
+            // txtIDGerente
+            // 
+            this.txtIDGerente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsProjeto, "IDGERENTE", true));
+            this.txtIDGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDGerente.Location = new System.Drawing.Point(99, 192);
+            this.txtIDGerente.Name = "txtIDGerente";
+            this.txtIDGerente.Size = new System.Drawing.Size(56, 22);
+            this.txtIDGerente.TabIndex = 9;
+            // 
+            // txtDataCriacao
+            // 
+            this.txtDataCriacao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsProjeto, "DATACRIACAO", true));
+            this.txtDataCriacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataCriacao.Location = new System.Drawing.Point(408, 16);
+            this.txtDataCriacao.Name = "txtDataCriacao";
+            this.txtDataCriacao.Size = new System.Drawing.Size(200, 22);
+            this.txtDataCriacao.TabIndex = 8;
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsProjeto, "DESCRICAO", true));
+            this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(99, 72);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(893, 114);
+            this.txtDescricao.TabIndex = 5;
+            // 
+            // txtID
+            // 
+            this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsProjeto, "ID", true));
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(99, 16);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(94, 22);
+            this.txtID.TabIndex = 3;
+            // 
+            // txtNome
+            // 
+            this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsProjeto, "NOME", true));
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(99, 44);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(893, 22);
+            this.txtNome.TabIndex = 1;
+            // 
+            // tbpPessoasProjetos
+            // 
+            this.tbpPessoasProjetos.AutoScroll = true;
+            this.tbpPessoasProjetos.BackColor = System.Drawing.Color.White;
+            this.tbpPessoasProjetos.Controls.Add(this.dtgProjetoPessoa);
+            this.tbpPessoasProjetos.Controls.Add(this.grbProjetosPessoasInformacoes);
+            this.tbpPessoasProjetos.Controls.Add(this.grbProjetosPessoasAcoes);
+            this.tbpPessoasProjetos.Location = new System.Drawing.Point(4, 28);
+            this.tbpPessoasProjetos.Name = "tbpPessoasProjetos";
+            this.tbpPessoasProjetos.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpPessoasProjetos.Size = new System.Drawing.Size(1000, 512);
+            this.tbpPessoasProjetos.TabIndex = 1;
+            this.tbpPessoasProjetos.Text = "Pessoas do Projeto";
+            // 
+            // dtgProjetoPessoa
+            // 
+            this.dtgProjetoPessoa.AllowUserToAddRows = false;
+            this.dtgProjetoPessoa.AllowUserToDeleteRows = false;
+            this.dtgProjetoPessoa.AutoGenerateColumns = false;
+            this.dtgProjetoPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProjetoPessoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn7,
@@ -763,14 +692,203 @@
             this.dataGridViewTextBoxColumn10,
             this.dtgProjetoPessoabtnEditar,
             this.dtgProjetoPessoaBtnExcluir});
-            this.dtgProjetosPessoasProjetosPrincipais.DataSource = this.projetosPessoasInformacoesCompletasBindingSource;
-            this.dtgProjetosPessoasProjetosPrincipais.Location = new System.Drawing.Point(8, 124);
-            this.dtgProjetosPessoasProjetosPrincipais.Name = "dtgProjetosPessoasProjetosPrincipais";
-            this.dtgProjetosPessoasProjetosPrincipais.ReadOnly = true;
-            this.dtgProjetosPessoasProjetosPrincipais.RowHeadersVisible = false;
-            this.dtgProjetosPessoasProjetosPrincipais.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgProjetosPessoasProjetosPrincipais.Size = new System.Drawing.Size(984, 383);
-            this.dtgProjetosPessoasProjetosPrincipais.TabIndex = 2;
+            this.dtgProjetoPessoa.DataSource = this.bsProjetoPessoa;
+            this.dtgProjetoPessoa.Location = new System.Drawing.Point(8, 146);
+            this.dtgProjetoPessoa.Name = "dtgProjetoPessoa";
+            this.dtgProjetoPessoa.ReadOnly = true;
+            this.dtgProjetoPessoa.RowHeadersVisible = false;
+            this.dtgProjetoPessoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgProjetoPessoa.Size = new System.Drawing.Size(984, 361);
+            this.dtgProjetoPessoa.TabIndex = 2;
+            // 
+            // bsProjetoPessoa
+            // 
+            this.bsProjetoPessoa.DataSource = typeof(SP3BLL.ViewBLL.ProjetosPessoasInformacoesCompletas);
+            // 
+            // grbProjetosPessoasInformacoes
+            // 
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaObservacoes);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label13);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label12);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.dtpProjetoPessoaIngresso);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaOcupacao);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label11);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaNome);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.btnProjetoPessoaLocalizar);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label10);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaCodigo);
+            this.grbProjetosPessoasInformacoes.Location = new System.Drawing.Point(140, 6);
+            this.grbProjetosPessoasInformacoes.Name = "grbProjetosPessoasInformacoes";
+            this.grbProjetosPessoasInformacoes.Size = new System.Drawing.Size(852, 134);
+            this.grbProjetosPessoasInformacoes.TabIndex = 1;
+            this.grbProjetosPessoasInformacoes.TabStop = false;
+            this.grbProjetosPessoasInformacoes.Text = "Informações";
+            // 
+            // grbProjetosPessoasAcoes
+            // 
+            this.grbProjetosPessoasAcoes.Controls.Add(this.btnProjetoPessoaExcluir);
+            this.grbProjetosPessoasAcoes.Controls.Add(this.btnProjetoPessoaAlterar);
+            this.grbProjetosPessoasAcoes.Controls.Add(this.btnPessoaProjetoIncluir);
+            this.grbProjetosPessoasAcoes.Location = new System.Drawing.Point(8, 6);
+            this.grbProjetosPessoasAcoes.Name = "grbProjetosPessoasAcoes";
+            this.grbProjetosPessoasAcoes.Size = new System.Drawing.Size(126, 112);
+            this.grbProjetosPessoasAcoes.TabIndex = 0;
+            this.grbProjetosPessoasAcoes.TabStop = false;
+            this.grbProjetosPessoasAcoes.Text = "Ações";
+            // 
+            // btnProjetoPessoaExcluir
+            // 
+            this.btnProjetoPessoaExcluir.Location = new System.Drawing.Point(6, 77);
+            this.btnProjetoPessoaExcluir.Name = "btnProjetoPessoaExcluir";
+            this.btnProjetoPessoaExcluir.Size = new System.Drawing.Size(114, 23);
+            this.btnProjetoPessoaExcluir.TabIndex = 2;
+            this.btnProjetoPessoaExcluir.Text = "Excluir";
+            this.btnProjetoPessoaExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnProjetoPessoaAlterar
+            // 
+            this.btnProjetoPessoaAlterar.Location = new System.Drawing.Point(6, 48);
+            this.btnProjetoPessoaAlterar.Name = "btnProjetoPessoaAlterar";
+            this.btnProjetoPessoaAlterar.Size = new System.Drawing.Size(114, 23);
+            this.btnProjetoPessoaAlterar.TabIndex = 1;
+            this.btnProjetoPessoaAlterar.Text = "Alterar";
+            this.btnProjetoPessoaAlterar.UseVisualStyleBackColor = true;
+            // 
+            // btnPessoaProjetoIncluir
+            // 
+            this.btnPessoaProjetoIncluir.Location = new System.Drawing.Point(6, 19);
+            this.btnPessoaProjetoIncluir.Name = "btnPessoaProjetoIncluir";
+            this.btnPessoaProjetoIncluir.Size = new System.Drawing.Size(114, 23);
+            this.btnPessoaProjetoIncluir.TabIndex = 0;
+            this.btnPessoaProjetoIncluir.Text = "Incluir";
+            this.btnPessoaProjetoIncluir.UseVisualStyleBackColor = true;
+            // 
+            // tbpReceitasVariaveis
+            // 
+            this.tbpReceitasVariaveis.Location = new System.Drawing.Point(4, 28);
+            this.tbpReceitasVariaveis.Name = "tbpReceitasVariaveis";
+            this.tbpReceitasVariaveis.Size = new System.Drawing.Size(1000, 512);
+            this.tbpReceitasVariaveis.TabIndex = 2;
+            this.tbpReceitasVariaveis.Text = "Receitas Variáveis";
+            this.tbpReceitasVariaveis.UseVisualStyleBackColor = true;
+            // 
+            // tbpReunioes
+            // 
+            this.tbpReunioes.Location = new System.Drawing.Point(4, 28);
+            this.tbpReunioes.Name = "tbpReunioes";
+            this.tbpReunioes.Size = new System.Drawing.Size(1000, 512);
+            this.tbpReunioes.TabIndex = 3;
+            this.tbpReunioes.Text = "Reuniões do Projeto";
+            this.tbpReunioes.UseVisualStyleBackColor = true;
+            // 
+            // txtProjetoPessoaCodigo
+            // 
+            this.txtProjetoPessoaCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProjetoPessoaCodigo.Location = new System.Drawing.Point(105, 20);
+            this.txtProjetoPessoaCodigo.Name = "txtProjetoPessoaCodigo";
+            this.txtProjetoPessoaCodigo.Size = new System.Drawing.Size(69, 22);
+            this.txtProjetoPessoaCodigo.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 16);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Código:";
+            // 
+            // btnProjetoPessoaLocalizar
+            // 
+            this.btnProjetoPessoaLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProjetoPessoaLocalizar.Location = new System.Drawing.Point(180, 20);
+            this.btnProjetoPessoaLocalizar.Name = "btnProjetoPessoaLocalizar";
+            this.btnProjetoPessoaLocalizar.Size = new System.Drawing.Size(35, 23);
+            this.btnProjetoPessoaLocalizar.TabIndex = 2;
+            this.btnProjetoPessoaLocalizar.Text = "...";
+            this.btnProjetoPessoaLocalizar.UseVisualStyleBackColor = true;
+            // 
+            // txtProjetoPessoaNome
+            // 
+            this.txtProjetoPessoaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProjetoPessoaNome.Location = new System.Drawing.Point(221, 21);
+            this.txtProjetoPessoaNome.Name = "txtProjetoPessoaNome";
+            this.txtProjetoPessoaNome.Size = new System.Drawing.Size(625, 22);
+            this.txtProjetoPessoaNome.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 16);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Ocupação:";
+            // 
+            // txtProjetoPessoaOcupacao
+            // 
+            this.txtProjetoPessoaOcupacao.Location = new System.Drawing.Point(105, 50);
+            this.txtProjetoPessoaOcupacao.Name = "txtProjetoPessoaOcupacao";
+            this.txtProjetoPessoaOcupacao.Size = new System.Drawing.Size(502, 22);
+            this.txtProjetoPessoaOcupacao.TabIndex = 5;
+            // 
+            // dtpProjetoPessoaIngresso
+            // 
+            this.dtpProjetoPessoaIngresso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpProjetoPessoaIngresso.Location = new System.Drawing.Point(682, 48);
+            this.dtpProjetoPessoaIngresso.Name = "dtpProjetoPessoaIngresso";
+            this.dtpProjetoPessoaIngresso.Size = new System.Drawing.Size(164, 22);
+            this.dtpProjetoPessoaIngresso.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(613, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 16);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Ingresso:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 82);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 16);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Observações:";
+            // 
+            // txtProjetoPessoaObservacoes
+            // 
+            this.txtProjetoPessoaObservacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProjetoPessoaObservacoes.Location = new System.Drawing.Point(105, 79);
+            this.txtProjetoPessoaObservacoes.Multiline = true;
+            this.txtProjetoPessoaObservacoes.Name = "txtProjetoPessoaObservacoes";
+            this.txtProjetoPessoaObservacoes.Size = new System.Drawing.Size(741, 49);
+            this.txtProjetoPessoaObservacoes.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtCrescimentoFixo);
+            this.groupBox3.Controls.Add(this.rbtCrestimentoPercentual);
+            this.groupBox3.Controls.Add(this.txtCrescimentoProporcional);
+            this.groupBox3.Controls.Add(this.ckbPermitirReceitasVariaveis);
+            this.groupBox3.Controls.Add(this.rbtCrescimentoFixo);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.txtReceitaFixa);
+            this.groupBox3.Controls.Add(label2);
+            this.groupBox3.Controls.Add(this.txtInvestimentoPrevisto);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(12, 261);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(805, 107);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Dados Financeiros";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -778,6 +896,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Cód. Pessoa";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 120;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -785,7 +904,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Colaborador";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 250;
+            this.dataGridViewTextBoxColumn1.Width = 230;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -809,6 +928,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Ingresso";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 135;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -852,18 +972,20 @@
             // 
             // dtgProjetoPessoabtnEditar
             // 
-            this.dtgProjetoPessoabtnEditar.DataPropertyName = "NomePessoa";
             this.dtgProjetoPessoabtnEditar.HeaderText = "";
             this.dtgProjetoPessoabtnEditar.Name = "dtgProjetoPessoabtnEditar";
             this.dtgProjetoPessoabtnEditar.ReadOnly = true;
+            this.dtgProjetoPessoabtnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgProjetoPessoabtnEditar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dtgProjetoPessoabtnEditar.Width = 20;
             // 
             // dtgProjetoPessoaBtnExcluir
             // 
-            this.dtgProjetoPessoaBtnExcluir.DataPropertyName = "NomePessoa";
             this.dtgProjetoPessoaBtnExcluir.HeaderText = "";
             this.dtgProjetoPessoaBtnExcluir.Name = "dtgProjetoPessoaBtnExcluir";
             this.dtgProjetoPessoaBtnExcluir.ReadOnly = true;
+            this.dtgProjetoPessoaBtnExcluir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgProjetoPessoaBtnExcluir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dtgProjetoPessoaBtnExcluir.Width = 20;
             // 
             // FrmCadastroProjeto
@@ -885,16 +1007,18 @@
             this.tabControl1.ResumeLayout(false);
             this.tbpInformacoes.ResumeLayout(false);
             this.tbpInformacoes.PerformLayout();
-            this.tbpPessoasProjetos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrevisaoConclusao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsProjeto)).EndInit();
+            this.tbpPessoasProjetos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProjetoPessoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsProjetoPessoa)).EndInit();
+            this.grbProjetosPessoasInformacoes.ResumeLayout(false);
+            this.grbProjetosPessoasInformacoes.PerformLayout();
             this.grbProjetosPessoasAcoes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.projetoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projetosPessoasInformacoesCompletasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProjetosPessoasProjetosPrincipais)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -917,39 +1041,49 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tbpInformacoes;
         private System.Windows.Forms.TabPage tbpPessoasProjetos;
-        private System.Windows.Forms.BindingSource projetoBindingSource;
+        private System.Windows.Forms.BindingSource bsProjeto;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox nOMETextBox;
-        private System.Windows.Forms.TextBox dESCRICAOTextBox;
-        private System.Windows.Forms.MaskedTextBox dATACRIACAOMaskedTextBox;
-        private System.Windows.Forms.Button btnGerente;
-        private System.Windows.Forms.TextBox iDGERENTETextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.MaskedTextBox txtDataCriacao;
+        private System.Windows.Forms.Button btnLocalizarGerente;
+        private System.Windows.Forms.TextBox txtIDGerente;
+        private System.Windows.Forms.TextBox txtNomeGerente;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.CheckedListBox checkedListBox4;
-        private System.Windows.Forms.CheckedListBox checkedListBox3;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox chkReceitaVariavel;
+        private System.Windows.Forms.CheckedListBox cblEsforcoAdicional;
+        private System.Windows.Forms.CheckedListBox cblApoioSteakHolders;
+        private System.Windows.Forms.CheckedListBox cblApoioAltaGestao;
+        private System.Windows.Forms.CheckedListBox cblCapacidadeEntregaEquipe;
+        private System.Windows.Forms.RadioButton rbtCrestimentoPercentual;
+        private System.Windows.Forms.RadioButton rbtCrescimentoFixo;
+        private System.Windows.Forms.TextBox txtCrescimentoFixo;
+        private System.Windows.Forms.TextBox txtCrescimentoProporcional;
+        private System.Windows.Forms.NumericUpDown nudPrevisaoConclusao;
+        private System.Windows.Forms.TextBox txtReceitaFixa;
+        private System.Windows.Forms.CheckBox ckbPermitirReceitasVariaveis;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox txtInvestimentoPrevisto;
+        private System.Windows.Forms.MaskedTextBox txtDataHoraAlteracao;
         private System.Windows.Forms.TabPage tbpReceitasVariaveis;
         private System.Windows.Forms.TabPage tbpReunioes;
         private System.Windows.Forms.GroupBox grbProjetosPessoasInformacoes;
         private System.Windows.Forms.GroupBox grbProjetosPessoasAcoes;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dtgProjetosPessoasProjetosPrincipais;
-        private System.Windows.Forms.BindingSource projetosPessoasInformacoesCompletasBindingSource;
+        private System.Windows.Forms.Button btnProjetoPessoaExcluir;
+        private System.Windows.Forms.Button btnProjetoPessoaAlterar;
+        private System.Windows.Forms.Button btnPessoaProjetoIncluir;
+        private System.Windows.Forms.DataGridView dtgProjetoPessoa;
+        private System.Windows.Forms.BindingSource bsProjetoPessoa;
+        private System.Windows.Forms.TextBox txtProjetoPessoaObservacoes;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dtpProjetoPessoaIngresso;
+        private System.Windows.Forms.TextBox txtProjetoPessoaOcupacao;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtProjetoPessoaNome;
+        private System.Windows.Forms.Button btnProjetoPessoaLocalizar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtProjetoPessoaCodigo;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -960,7 +1094,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetoPessoabtnEditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetoPessoaBtnExcluir;
+        private System.Windows.Forms.DataGridViewImageColumn dtgProjetoPessoabtnEditar;
+        private System.Windows.Forms.DataGridViewImageColumn dtgProjetoPessoaBtnExcluir;
     }
 }
