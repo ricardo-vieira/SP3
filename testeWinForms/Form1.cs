@@ -13,8 +13,7 @@ namespace testeWinForms
 
     public partial class Form1 : Form
     {
-        SP3DAL.EntityRepository<SP3Model.Pessoa, SP3BLL.ViewBLL.PessoasInformacoesCompletas> entity = new SP3DAL.EntityRepository<SP3Model.Pessoa, SP3BLL.ViewBLL.PessoasInformacoesCompletas>();
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +21,12 @@ namespace testeWinForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            entity.GetList(this.pessoaBindingSource);
+            SP3DAL.EntityRepository<SP3Model.Pessoa, SP3Model.View.PessoasInformacoesCompletas> entity = new SP3DAL.EntityRepository<SP3Model.Pessoa, SP3Model.View.PessoasInformacoesCompletas>();
+            entity.GetList(this.pessoasInformacoesCompletasBindingSource);
+            SP3DAL.EntityRepository<SP3Model.ProjetoPessoa, SP3Model.View.ProjetosPessoasInformacoesCompletas> entityDetail = new SP3DAL.EntityRepository<SP3Model.ProjetoPessoa, SP3Model.View.ProjetosPessoasInformacoesCompletas>(projetoPessoaBindingSource, pessoasInformacoesCompletasBindingSource.Current);
+
+            
+            entityDetail.GetList();
 
             //Teste a = new Teste();
 
@@ -53,8 +57,8 @@ namespace testeWinForms
           ////  entity.SaveChanges(
 
 
-            entity.Add(new SP3BLL.ViewBLL.PessoasInformacoesCompletas { NOME = "primeiro teste com view" });
-            entity.Commit();
+            //entity.Add(new SP3BLL.ViewBLL.PessoasInformacoesCompletas { NOME = "primeiro teste com view" });
+            //entity.Commit();
 
             //entity.ApplyFilter(delegate (SP3DAL.Pessoa pessoa)
             //{

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace SP3BLL.ViewBLL
+namespace SP3Model.View
 {
     public class PessoasInformacoesCompletas : SP3Model.Pessoa
     {

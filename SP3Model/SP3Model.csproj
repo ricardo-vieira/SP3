@@ -63,6 +63,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SP3Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\PessoasInformacoesCompletas.cs" />
+    <Compile Include="Views\ProjetosInformacoesCompletas.cs" />
+    <Compile Include="Views\ProjetosPessoasInformacoesCompletas.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SP3Model.tt">

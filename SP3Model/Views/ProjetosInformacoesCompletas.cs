@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace SP3BLL.ViewBLL
+namespace SP3Model.View
 {
     public sealed class ProjetosInformacoesCompletas : SP3Model.Projeto
     {
