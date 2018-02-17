@@ -240,7 +240,7 @@ namespace SP3DAL
         /// </summary>
         /// <param name="masterObject">Objeto master que contem a listagem de objetos da entidade da classe T</param>
         /// <param name="propertyDetailObject">Propriedade do objeto masterObject onde está contido a listagem do objectos da classe T</param>
-        public EntityDetailRepository(TMaster masterObject, PropertyInfo propertyDetailObject = null)
+        public EntityDetailRepository(object masterObject, PropertyInfo propertyDetailObject = null)
         {
             try
             {
@@ -252,50 +252,64 @@ namespace SP3DAL
             }
         }
 
-        protected void InitializeMasterDetailEntity(TMaster masterObject, PropertyInfo propertyDetailObject = null)
+        protected void InitializeMasterDetailEntity(object masterObject, PropertyInfo propertyDetailObject = null)
         {
             try
             {
-                if (masterObject is SP3Model.View.PessoasInformacoesCompletas)
-                    0.ToString();
+                if (masterObject.GetType() == typeof(TMaster))
+                {
+                    this.masterObject = (masterObject as TMaster);
+                }
+                else if (masterObject.GetType() == typeof(ObjectView<TMaster>))
+                {
+                    this.masterObject = (masterObject as ObjectView<TMaster>).Object;
+                }
+                else
+                {
+                    throw new Exception("O objecto informado no parâmetro masterObject não corresponde com os tipos compativeis: " + typeof(TMaster).ToString() + ", " + typeof(ObjectView<TMaster>).ToString());
+                }
+
 
                 if (propertyDetailObject is null)
                 {
-                    Type testeType = masterObject.GetType();
-                    PropertyInfo[] teste = masterObject.GetType().GetProperties();
 
-                    int countPropertiesMasterObject = masterObject.GetType().GetProperties().Count(x => x.PropertyType.Equals(typeof(List<T>)));
+                    int countPropertiesMasterObject = this.masterObject.GetType().GetProperties().Count(x => x.PropertyType.GetInterfaces().Contains(typeof(IList<T>)));
 
                     if (countPropertiesMasterObject <= 0)
-                        throw new Exception("Não foi encontrado nenhuma propriedade no objeto masterObject que corresponda a uma lista de objetos da classe T (" + typeof(List<T>).ToString() + "\").");
+                        throw new Exception("Não foi encontrado nenhuma propriedade no objeto masterObject que corresponda a uma lista de objetos da classe T (" + typeof(IList<T>).ToString() + "\").");
 
                     if (countPropertiesMasterObject > 1)
                     {
                         StringBuilder propertiesFinderMasterObject = new StringBuilder();
 
-                        masterObject.GetType().GetProperties().Where(x => x.PropertyType.IsEquivalentTo(typeof(List<T>))).ToList().ForEach(x => { propertiesFinderMasterObject.AppendLine("Property Name: " + x.Name + " Property Type: " + x.PropertyType.ToString()); });
+                        this.masterObject.GetType().GetProperties().Where(x => x.PropertyType.IsEquivalentTo(typeof(List<T>))).ToList().ForEach(x => { propertiesFinderMasterObject.AppendLine("Property Name: " + x.Name + " Property Type: " + x.PropertyType.ToString()); });
 
                         throw new Exception("Foram encontrados mais de uma propriedade no objecto masterObject que correspondem a uma lista de objectos da classe T (" + typeof(List<T>).ToString() + "\"). Caso necessário, especifique exatamente o nome da propriedade do objeto masterObject que corresponda a lista de objetos da classe T." +
                                             "\nProperties:\n" + propertiesFinderMasterObject.ToString());
                     }
 
-                    propertyDetailObject = masterObject.GetType().GetProperties().First(x => x.PropertyType.IsEquivalentTo(typeof(List<T>)));
+                    propertyDetailObject = this.masterObject.GetType().GetProperties().First(x => x.PropertyType.GetInterfaces().Contains(typeof(IList<T>)));
                 }
 
                 else
                 {
-                    if (propertyDetailObject.PropertyType.IsEquivalentTo(typeof(List<T>)))
+                    if (propertyDetailObject.PropertyType.GetInterfaces().Contains(typeof(IList<T>)))
                         throw new Exception("A propriedade indicada em propertyMasterObject não corresponde a uma lista do objeto T");
 
-                    if (!masterObject.GetType().GetRuntimeProperties().Any(x => x.PropertyType.IsEquivalentTo(propertyDetailObject.PropertyType)))
+                    if (!this.masterObject.GetType().GetRuntimeProperties().Any(x => x.PropertyType.IsEquivalentTo(propertyDetailObject.PropertyType)))
                         throw new Exception("Não foi encontrado nenhuma propriedade no objecto masterObject que corresponda ao tipo indicado em propertyMasterObject");
                 }
 
-                this.masterObject = masterObject;
-                this._detailEntityContext = (propertyDetailObject.GetValue(masterObject) as IList<T>);
 
-                if (this._detailEntityContext.GetType().IsEquivalentTo(typeof(ObservableCollection<T>)))
-                    _bindingList = (propertyDetailObject.GetValue(masterObject) as ObservableCollection<T>).ToBindingList();
+
+
+                this._detailEntityContext = (IList<T>)propertyDetailObject.GetValue(this.masterObject);
+
+
+
+
+                if (this._detailEntityContext.GetType().BaseType.Equals(typeof(ObservableCollection<T>)))
+                    _bindingList = (propertyDetailObject.GetValue(this.masterObject) as ObservableCollection<T>).ToBindingList();
                 else
                     _bindingList = new BindingList<T>(this._detailEntityContext.ToList());
 
@@ -393,12 +407,9 @@ namespace SP3DAL
         private BindingSource _bindingSourceObject;
         private BindingSource BindingSourceObject { get => _bindingSourceObject; }
 
-        public EntityDetailRepository(BindingSource bindingSourceObject, TMaster masterObject, PropertyInfo propertyDetailObject = null) : base(masterObject, propertyDetailObject)
+        public EntityDetailRepository(BindingSource bindingSourceObject, object masterObject, PropertyInfo propertyDetailObject = null) : base(masterObject, propertyDetailObject)
         {
-            this._bindingSourceObject = bindingSourceObject;
-
-            base.InitializeMasterDetailEntity(masterObject, propertyDetailObject);
-
+            this._bindingSourceObject = bindingSourceObject;        
             GetList();
         }
 

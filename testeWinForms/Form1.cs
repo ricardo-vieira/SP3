@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SP3DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace testeWinForms
     public partial class Form1 : Form
     {
         
+
         public Form1()
         {
             InitializeComponent();
@@ -21,20 +23,9 @@ namespace testeWinForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SP3DAL.EntityRepository<SP3Model.Pessoa, SP3Model.View.PessoasInformacoesCompletas> entity = new SP3DAL.EntityRepository<SP3Model.Pessoa, SP3Model.View.PessoasInformacoesCompletas>();
-            entity.GetList(this.pessoasInformacoesCompletasBindingSource);
-            SP3DAL.EntityRepository<SP3Model.ProjetoPessoa, SP3Model.View.ProjetosPessoasInformacoesCompletas> entityDetail = new SP3DAL.EntityRepository<SP3Model.ProjetoPessoa, SP3Model.View.ProjetosPessoasInformacoesCompletas>(projetoPessoaBindingSource, pessoasInformacoesCompletasBindingSource.Current);
+            EntityRepository<SP3Model.Pessoa, SP3Model.View.PessoasInformacoesCompletas> entityPessoa = new EntityRepository<SP3Model.Pessoa, SP3Model.View.PessoasInformacoesCompletas>(pessoasInformacoesCompletasBindingSource);
 
-            
-            entityDetail.GetList();
-
-            //Teste a = new Teste();
-
-            //ref Teste z = ref mudanca(ref a);
-            //z.primeirocampo = 122;
-
-            //a.primeirocampo.ToString();
-
+            EntityDetailRepository<SP3Model.ProjetoPessoa, SP3Model.View.PessoasInformacoesCompletas, SP3Model.View.ProjetosPessoasInformacoesCompletas> entityProjetoPessoa = new EntityDetailRepository<SP3Model.ProjetoPessoa, SP3Model.View.PessoasInformacoesCompletas, SP3Model.View.ProjetosPessoasInformacoesCompletas>(projetoPessoaBindingSource, pessoasInformacoesCompletasBindingSource.Current);
         }
 
         private ref Teste mudanca(ref Teste b)
@@ -88,6 +79,11 @@ namespace testeWinForms
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void pessoasInformacoesCompletasBindingNavigator_RefreshItems(object sender, EventArgs e)
         {
 
         }
