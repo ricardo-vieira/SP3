@@ -11,7 +11,7 @@ using System.Reflection;
 using Equin.ApplicationFramework;
 using System.Windows.Forms;
 using SP3Model;
-using SP3Model.View;
+using System.Data.Entity.Core.Objects;
 
 namespace SP3DAL
 {
@@ -181,6 +181,7 @@ namespace SP3DAL
             if (!(this._bindingSourceObject is null))
                 this._bindingSourceObject.DataSource = base._bindingList;
 
+
             return true;
         }
 
@@ -263,6 +264,10 @@ namespace SP3DAL
                 else if (masterObject.GetType() == typeof(ObjectView<TMaster>))
                 {
                     this.masterObject = (masterObject as ObjectView<TMaster>).Object;
+                }
+                else if (ObjectContext.GetObjectType(masterObject.GetType()) == typeof(TMaster))
+                {
+                    this.masterObject = (masterObject as TMaster);
                 }
                 else
                 {
