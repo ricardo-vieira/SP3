@@ -16,8 +16,7 @@ namespace SP3BLL
 
         public bool Add(SP3Model.Projeto projeto)
         {
-            this._projetoRepository.Add(projeto);
-            return true;
+            return this._projetoRepository.Add(projeto);
         }
 
         public bool Remove(SP3Model.Projeto projeto)
@@ -26,30 +25,11 @@ namespace SP3BLL
             return true;
         }
 
-
         public bool Filter(Predicate<SP3Model.Projeto> filtro)
         {
             _projetoRepository.ApplyFilter(filtro);
             return true;
         }
 
-        public bool AddProjetoPessoa(SP3Model.ProjetoPessoa projetoPessoa)
-        {
-            try
-            {
-                if (!(_projetoRepository.ModifiedObject is null))
-                {
-                    _projetoRepository.ModifiedObject.ProjetoPessoa.Add(projetoPessoa);
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Function AddProjetoPessoa." +
-                                    "\n" + ex.ToString());
-            }
-
-            return false;
-        }
     }
 }
