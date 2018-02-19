@@ -62,7 +62,15 @@
             this.cblApoioSteakHolders = new System.Windows.Forms.CheckedListBox();
             this.cblApoioAltaGestao = new System.Windows.Forms.CheckedListBox();
             this.cblCapacidadeEntregaEquipe = new System.Windows.Forms.CheckedListBox();
+            this.rbtCrestimentoPercentual = new System.Windows.Forms.RadioButton();
+            this.rbtCrescimentoFixo = new System.Windows.Forms.RadioButton();
+            this.txtCrescimentoFixo = new System.Windows.Forms.TextBox();
+            this.txtCrescimentoProporcional = new System.Windows.Forms.TextBox();
             this.nudPrevisaoConclusao = new System.Windows.Forms.NumericUpDown();
+            this.txtReceitaFixa = new System.Windows.Forms.TextBox();
+            this.ckbPermitirReceitasVariaveis = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtInvestimentoPrevisto = new System.Windows.Forms.TextBox();
             this.txtDataHoraAlteracao = new System.Windows.Forms.MaskedTextBox();
             this.bsProjeto = new System.Windows.Forms.BindingSource(this.components);
             this.txtNomeGerente = new System.Windows.Forms.TextBox();
@@ -72,17 +80,27 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtCrescimentoFixo = new System.Windows.Forms.TextBox();
-            this.rbtCrestimentoPercentual = new System.Windows.Forms.RadioButton();
-            this.txtCrescimentoProporcional = new System.Windows.Forms.TextBox();
-            this.ckbPermitirReceitasVariaveis = new System.Windows.Forms.CheckBox();
-            this.rbtCrescimentoFixo = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtReceitaFixa = new System.Windows.Forms.TextBox();
-            this.txtInvestimentoPrevisto = new System.Windows.Forms.TextBox();
             this.tbpPessoasProjetos = new System.Windows.Forms.TabPage();
             this.dtgProjetoPessoa = new System.Windows.Forms.DataGridView();
+            this.bsProjetoPessoa = new System.Windows.Forms.BindingSource(this.components);
+            this.grbProjetosPessoasInformacoes = new System.Windows.Forms.GroupBox();
+            this.grbProjetosPessoasAcoes = new System.Windows.Forms.GroupBox();
+            this.btnProjetoPessoaExcluir = new System.Windows.Forms.Button();
+            this.btnProjetoPessoaAlterar = new System.Windows.Forms.Button();
+            this.btnPessoaProjetoIncluir = new System.Windows.Forms.Button();
+            this.tbpReceitasVariaveis = new System.Windows.Forms.TabPage();
+            this.tbpReunioes = new System.Windows.Forms.TabPage();
+            this.txtProjetoPessoaCodigo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnProjetoPessoaLocalizar = new System.Windows.Forms.Button();
+            this.txtProjetoPessoaNome = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtProjetoPessoaOcupacao = new System.Windows.Forms.TextBox();
+            this.dtpProjetoPessoaIngresso = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtProjetoPessoaObservacoes = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,25 +113,6 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgProjetoPessoabtnEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dtgProjetoPessoaBtnExcluir = new System.Windows.Forms.DataGridViewImageColumn();
-            this.bsProjetoPessoa = new System.Windows.Forms.BindingSource(this.components);
-            this.grbProjetosPessoasInformacoes = new System.Windows.Forms.GroupBox();
-            this.txtProjetoPessoaObservacoes = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.dtpProjetoPessoaIngresso = new System.Windows.Forms.DateTimePicker();
-            this.txtProjetoPessoaOcupacao = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtProjetoPessoaNome = new System.Windows.Forms.TextBox();
-            this.btnProjetoPessoaLocalizar = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtProjetoPessoaCodigo = new System.Windows.Forms.TextBox();
-            this.grbProjetosPessoasAcoes = new System.Windows.Forms.GroupBox();
-            this.btnProjetoPessoaExcluir = new System.Windows.Forms.Button();
-            this.btnProjetoPessoaAlterar = new System.Windows.Forms.Button();
-            this.btnPessoaProjetoIncluir = new System.Windows.Forms.Button();
-            this.tbpReceitasVariaveis = new System.Windows.Forms.TabPage();
-            this.tbpReunioes = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             iDLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             dESCRICAOLabel = new System.Windows.Forms.Label();
@@ -133,12 +132,12 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrevisaoConclusao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProjeto)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.tbpPessoasProjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProjetoPessoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProjetoPessoa)).BeginInit();
             this.grbProjetosPessoasInformacoes.SuspendLayout();
             this.grbProjetosPessoasAcoes.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // iDLabel
@@ -396,7 +395,6 @@
             // 
             this.tbpInformacoes.AutoScroll = true;
             this.tbpInformacoes.BackColor = System.Drawing.Color.White;
-            this.tbpInformacoes.Controls.Add(this.button1);
             this.tbpInformacoes.Controls.Add(this.groupBox2);
             this.tbpInformacoes.Controls.Add(this.nudPrevisaoConclusao);
             this.tbpInformacoes.Controls.Add(label6);
@@ -500,6 +498,46 @@
             this.cblCapacidadeEntregaEquipe.Size = new System.Drawing.Size(119, 68);
             this.cblCapacidadeEntregaEquipe.TabIndex = 0;
             // 
+            // rbtCrestimentoPercentual
+            // 
+            this.rbtCrestimentoPercentual.AutoSize = true;
+            this.rbtCrestimentoPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtCrestimentoPercentual.Location = new System.Drawing.Point(456, 77);
+            this.rbtCrestimentoPercentual.Name = "rbtCrestimentoPercentual";
+            this.rbtCrestimentoPercentual.Size = new System.Drawing.Size(191, 20);
+            this.rbtCrestimentoPercentual.TabIndex = 27;
+            this.rbtCrestimentoPercentual.TabStop = true;
+            this.rbtCrestimentoPercentual.Text = "Crescimento Percentual(%):";
+            this.rbtCrestimentoPercentual.UseVisualStyleBackColor = true;
+            // 
+            // rbtCrescimentoFixo
+            // 
+            this.rbtCrescimentoFixo.AutoSize = true;
+            this.rbtCrescimentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtCrescimentoFixo.Location = new System.Drawing.Point(456, 52);
+            this.rbtCrescimentoFixo.Name = "rbtCrescimentoFixo";
+            this.rbtCrescimentoFixo.Size = new System.Drawing.Size(132, 20);
+            this.rbtCrescimentoFixo.TabIndex = 26;
+            this.rbtCrescimentoFixo.TabStop = true;
+            this.rbtCrescimentoFixo.Text = "Crescimento Fixo:";
+            this.rbtCrescimentoFixo.UseVisualStyleBackColor = true;
+            // 
+            // txtCrescimentoFixo
+            // 
+            this.txtCrescimentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrescimentoFixo.Location = new System.Drawing.Point(653, 50);
+            this.txtCrescimentoFixo.Name = "txtCrescimentoFixo";
+            this.txtCrescimentoFixo.Size = new System.Drawing.Size(146, 22);
+            this.txtCrescimentoFixo.TabIndex = 1;
+            // 
+            // txtCrescimentoProporcional
+            // 
+            this.txtCrescimentoProporcional.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrescimentoProporcional.Location = new System.Drawing.Point(653, 76);
+            this.txtCrescimentoProporcional.Name = "txtCrescimentoProporcional";
+            this.txtCrescimentoProporcional.Size = new System.Drawing.Size(146, 22);
+            this.txtCrescimentoProporcional.TabIndex = 0;
+            // 
             // nudPrevisaoConclusao
             // 
             this.nudPrevisaoConclusao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -508,6 +546,41 @@
             this.nudPrevisaoConclusao.Size = new System.Drawing.Size(94, 22);
             this.nudPrevisaoConclusao.TabIndex = 24;
             this.nudPrevisaoConclusao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtReceitaFixa
+            // 
+            this.txtReceitaFixa.Location = new System.Drawing.Point(285, 51);
+            this.txtReceitaFixa.Name = "txtReceitaFixa";
+            this.txtReceitaFixa.Size = new System.Drawing.Size(136, 22);
+            this.txtReceitaFixa.TabIndex = 17;
+            // 
+            // ckbPermitirReceitasVariaveis
+            // 
+            this.ckbPermitirReceitasVariaveis.AutoSize = true;
+            this.ckbPermitirReceitasVariaveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbPermitirReceitasVariaveis.Location = new System.Drawing.Point(6, 53);
+            this.ckbPermitirReceitasVariaveis.Name = "ckbPermitirReceitasVariaveis";
+            this.ckbPermitirReceitasVariaveis.Size = new System.Drawing.Size(181, 20);
+            this.ckbPermitirReceitasVariaveis.TabIndex = 16;
+            this.ckbPermitirReceitasVariaveis.Text = "Permitir receitas variáveis";
+            this.ckbPermitirReceitasVariaveis.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(193, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Receita Fixa:";
+            // 
+            // txtInvestimentoPrevisto
+            // 
+            this.txtInvestimentoPrevisto.Location = new System.Drawing.Point(98, 21);
+            this.txtInvestimentoPrevisto.Name = "txtInvestimentoPrevisto";
+            this.txtInvestimentoPrevisto.Size = new System.Drawing.Size(170, 22);
+            this.txtInvestimentoPrevisto.TabIndex = 15;
             // 
             // txtDataHoraAlteracao
             // 
@@ -586,100 +659,6 @@
             this.txtNome.Size = new System.Drawing.Size(893, 22);
             this.txtNome.TabIndex = 1;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtCrescimentoFixo);
-            this.groupBox3.Controls.Add(this.rbtCrestimentoPercentual);
-            this.groupBox3.Controls.Add(this.txtCrescimentoProporcional);
-            this.groupBox3.Controls.Add(this.ckbPermitirReceitasVariaveis);
-            this.groupBox3.Controls.Add(this.rbtCrescimentoFixo);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.txtReceitaFixa);
-            this.groupBox3.Controls.Add(label2);
-            this.groupBox3.Controls.Add(this.txtInvestimentoPrevisto);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 261);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(805, 107);
-            this.groupBox3.TabIndex = 27;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dados Financeiros";
-            // 
-            // txtCrescimentoFixo
-            // 
-            this.txtCrescimentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCrescimentoFixo.Location = new System.Drawing.Point(653, 50);
-            this.txtCrescimentoFixo.Name = "txtCrescimentoFixo";
-            this.txtCrescimentoFixo.Size = new System.Drawing.Size(146, 22);
-            this.txtCrescimentoFixo.TabIndex = 1;
-            // 
-            // rbtCrestimentoPercentual
-            // 
-            this.rbtCrestimentoPercentual.AutoSize = true;
-            this.rbtCrestimentoPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtCrestimentoPercentual.Location = new System.Drawing.Point(456, 77);
-            this.rbtCrestimentoPercentual.Name = "rbtCrestimentoPercentual";
-            this.rbtCrestimentoPercentual.Size = new System.Drawing.Size(191, 20);
-            this.rbtCrestimentoPercentual.TabIndex = 27;
-            this.rbtCrestimentoPercentual.TabStop = true;
-            this.rbtCrestimentoPercentual.Text = "Crescimento Percentual(%):";
-            this.rbtCrestimentoPercentual.UseVisualStyleBackColor = true;
-            // 
-            // txtCrescimentoProporcional
-            // 
-            this.txtCrescimentoProporcional.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCrescimentoProporcional.Location = new System.Drawing.Point(653, 76);
-            this.txtCrescimentoProporcional.Name = "txtCrescimentoProporcional";
-            this.txtCrescimentoProporcional.Size = new System.Drawing.Size(146, 22);
-            this.txtCrescimentoProporcional.TabIndex = 0;
-            // 
-            // ckbPermitirReceitasVariaveis
-            // 
-            this.ckbPermitirReceitasVariaveis.AutoSize = true;
-            this.ckbPermitirReceitasVariaveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbPermitirReceitasVariaveis.Location = new System.Drawing.Point(6, 53);
-            this.ckbPermitirReceitasVariaveis.Name = "ckbPermitirReceitasVariaveis";
-            this.ckbPermitirReceitasVariaveis.Size = new System.Drawing.Size(181, 20);
-            this.ckbPermitirReceitasVariaveis.TabIndex = 16;
-            this.ckbPermitirReceitasVariaveis.Text = "Permitir receitas variáveis";
-            this.ckbPermitirReceitasVariaveis.UseVisualStyleBackColor = true;
-            // 
-            // rbtCrescimentoFixo
-            // 
-            this.rbtCrescimentoFixo.AutoSize = true;
-            this.rbtCrescimentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtCrescimentoFixo.Location = new System.Drawing.Point(456, 52);
-            this.rbtCrescimentoFixo.Name = "rbtCrescimentoFixo";
-            this.rbtCrescimentoFixo.Size = new System.Drawing.Size(132, 20);
-            this.rbtCrescimentoFixo.TabIndex = 26;
-            this.rbtCrescimentoFixo.TabStop = true;
-            this.rbtCrescimentoFixo.Text = "Crescimento Fixo:";
-            this.rbtCrescimentoFixo.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(193, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 16);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Receita Fixa:";
-            // 
-            // txtReceitaFixa
-            // 
-            this.txtReceitaFixa.Location = new System.Drawing.Point(285, 51);
-            this.txtReceitaFixa.Name = "txtReceitaFixa";
-            this.txtReceitaFixa.Size = new System.Drawing.Size(136, 22);
-            this.txtReceitaFixa.TabIndex = 17;
-            // 
-            // txtInvestimentoPrevisto
-            // 
-            this.txtInvestimentoPrevisto.Location = new System.Drawing.Point(98, 21);
-            this.txtInvestimentoPrevisto.Name = "txtInvestimentoPrevisto";
-            this.txtInvestimentoPrevisto.Size = new System.Drawing.Size(170, 22);
-            this.txtInvestimentoPrevisto.TabIndex = 15;
-            // 
             // tbpPessoasProjetos
             // 
             this.tbpPessoasProjetos.AutoScroll = true;
@@ -721,6 +700,195 @@
             this.dtgProjetoPessoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProjetoPessoa.Size = new System.Drawing.Size(984, 361);
             this.dtgProjetoPessoa.TabIndex = 2;
+            // 
+            // bsProjetoPessoa
+            // 
+            this.bsProjetoPessoa.DataSource = typeof(SP3BLL.ViewBLL.ProjetosPessoasInformacoesCompletas);
+            // 
+            // grbProjetosPessoasInformacoes
+            // 
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaObservacoes);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label13);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label12);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.dtpProjetoPessoaIngresso);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaOcupacao);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label11);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaNome);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.btnProjetoPessoaLocalizar);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.label10);
+            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaCodigo);
+            this.grbProjetosPessoasInformacoes.Location = new System.Drawing.Point(140, 6);
+            this.grbProjetosPessoasInformacoes.Name = "grbProjetosPessoasInformacoes";
+            this.grbProjetosPessoasInformacoes.Size = new System.Drawing.Size(852, 134);
+            this.grbProjetosPessoasInformacoes.TabIndex = 1;
+            this.grbProjetosPessoasInformacoes.TabStop = false;
+            this.grbProjetosPessoasInformacoes.Text = "Informações";
+            // 
+            // grbProjetosPessoasAcoes
+            // 
+            this.grbProjetosPessoasAcoes.Controls.Add(this.btnProjetoPessoaExcluir);
+            this.grbProjetosPessoasAcoes.Controls.Add(this.btnProjetoPessoaAlterar);
+            this.grbProjetosPessoasAcoes.Controls.Add(this.btnPessoaProjetoIncluir);
+            this.grbProjetosPessoasAcoes.Location = new System.Drawing.Point(8, 6);
+            this.grbProjetosPessoasAcoes.Name = "grbProjetosPessoasAcoes";
+            this.grbProjetosPessoasAcoes.Size = new System.Drawing.Size(126, 112);
+            this.grbProjetosPessoasAcoes.TabIndex = 0;
+            this.grbProjetosPessoasAcoes.TabStop = false;
+            this.grbProjetosPessoasAcoes.Text = "Ações";
+            // 
+            // btnProjetoPessoaExcluir
+            // 
+            this.btnProjetoPessoaExcluir.Location = new System.Drawing.Point(6, 77);
+            this.btnProjetoPessoaExcluir.Name = "btnProjetoPessoaExcluir";
+            this.btnProjetoPessoaExcluir.Size = new System.Drawing.Size(114, 23);
+            this.btnProjetoPessoaExcluir.TabIndex = 2;
+            this.btnProjetoPessoaExcluir.Text = "Excluir";
+            this.btnProjetoPessoaExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnProjetoPessoaAlterar
+            // 
+            this.btnProjetoPessoaAlterar.Location = new System.Drawing.Point(6, 48);
+            this.btnProjetoPessoaAlterar.Name = "btnProjetoPessoaAlterar";
+            this.btnProjetoPessoaAlterar.Size = new System.Drawing.Size(114, 23);
+            this.btnProjetoPessoaAlterar.TabIndex = 1;
+            this.btnProjetoPessoaAlterar.Text = "Alterar";
+            this.btnProjetoPessoaAlterar.UseVisualStyleBackColor = true;
+            // 
+            // btnPessoaProjetoIncluir
+            // 
+            this.btnPessoaProjetoIncluir.Location = new System.Drawing.Point(6, 19);
+            this.btnPessoaProjetoIncluir.Name = "btnPessoaProjetoIncluir";
+            this.btnPessoaProjetoIncluir.Size = new System.Drawing.Size(114, 23);
+            this.btnPessoaProjetoIncluir.TabIndex = 0;
+            this.btnPessoaProjetoIncluir.Text = "Incluir";
+            this.btnPessoaProjetoIncluir.UseVisualStyleBackColor = true;
+            // 
+            // tbpReceitasVariaveis
+            // 
+            this.tbpReceitasVariaveis.Location = new System.Drawing.Point(4, 28);
+            this.tbpReceitasVariaveis.Name = "tbpReceitasVariaveis";
+            this.tbpReceitasVariaveis.Size = new System.Drawing.Size(1000, 512);
+            this.tbpReceitasVariaveis.TabIndex = 2;
+            this.tbpReceitasVariaveis.Text = "Receitas Variáveis";
+            this.tbpReceitasVariaveis.UseVisualStyleBackColor = true;
+            // 
+            // tbpReunioes
+            // 
+            this.tbpReunioes.Location = new System.Drawing.Point(4, 28);
+            this.tbpReunioes.Name = "tbpReunioes";
+            this.tbpReunioes.Size = new System.Drawing.Size(1000, 512);
+            this.tbpReunioes.TabIndex = 3;
+            this.tbpReunioes.Text = "Reuniões do Projeto";
+            this.tbpReunioes.UseVisualStyleBackColor = true;
+            // 
+            // txtProjetoPessoaCodigo
+            // 
+            this.txtProjetoPessoaCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProjetoPessoaCodigo.Location = new System.Drawing.Point(105, 20);
+            this.txtProjetoPessoaCodigo.Name = "txtProjetoPessoaCodigo";
+            this.txtProjetoPessoaCodigo.Size = new System.Drawing.Size(69, 22);
+            this.txtProjetoPessoaCodigo.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 16);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Código:";
+            // 
+            // btnProjetoPessoaLocalizar
+            // 
+            this.btnProjetoPessoaLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProjetoPessoaLocalizar.Location = new System.Drawing.Point(180, 20);
+            this.btnProjetoPessoaLocalizar.Name = "btnProjetoPessoaLocalizar";
+            this.btnProjetoPessoaLocalizar.Size = new System.Drawing.Size(35, 23);
+            this.btnProjetoPessoaLocalizar.TabIndex = 2;
+            this.btnProjetoPessoaLocalizar.Text = "...";
+            this.btnProjetoPessoaLocalizar.UseVisualStyleBackColor = true;
+            // 
+            // txtProjetoPessoaNome
+            // 
+            this.txtProjetoPessoaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProjetoPessoaNome.Location = new System.Drawing.Point(221, 21);
+            this.txtProjetoPessoaNome.Name = "txtProjetoPessoaNome";
+            this.txtProjetoPessoaNome.Size = new System.Drawing.Size(625, 22);
+            this.txtProjetoPessoaNome.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 16);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Ocupação:";
+            // 
+            // txtProjetoPessoaOcupacao
+            // 
+            this.txtProjetoPessoaOcupacao.Location = new System.Drawing.Point(105, 50);
+            this.txtProjetoPessoaOcupacao.Name = "txtProjetoPessoaOcupacao";
+            this.txtProjetoPessoaOcupacao.Size = new System.Drawing.Size(502, 22);
+            this.txtProjetoPessoaOcupacao.TabIndex = 5;
+            // 
+            // dtpProjetoPessoaIngresso
+            // 
+            this.dtpProjetoPessoaIngresso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpProjetoPessoaIngresso.Location = new System.Drawing.Point(682, 48);
+            this.dtpProjetoPessoaIngresso.Name = "dtpProjetoPessoaIngresso";
+            this.dtpProjetoPessoaIngresso.Size = new System.Drawing.Size(164, 22);
+            this.dtpProjetoPessoaIngresso.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(613, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 16);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Ingresso:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 82);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 16);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Observações:";
+            // 
+            // txtProjetoPessoaObservacoes
+            // 
+            this.txtProjetoPessoaObservacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProjetoPessoaObservacoes.Location = new System.Drawing.Point(105, 79);
+            this.txtProjetoPessoaObservacoes.Multiline = true;
+            this.txtProjetoPessoaObservacoes.Name = "txtProjetoPessoaObservacoes";
+            this.txtProjetoPessoaObservacoes.Size = new System.Drawing.Size(741, 49);
+            this.txtProjetoPessoaObservacoes.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtCrescimentoFixo);
+            this.groupBox3.Controls.Add(this.rbtCrestimentoPercentual);
+            this.groupBox3.Controls.Add(this.txtCrescimentoProporcional);
+            this.groupBox3.Controls.Add(this.ckbPermitirReceitasVariaveis);
+            this.groupBox3.Controls.Add(this.rbtCrescimentoFixo);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.txtReceitaFixa);
+            this.groupBox3.Controls.Add(label2);
+            this.groupBox3.Controls.Add(this.txtInvestimentoPrevisto);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(12, 261);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(805, 107);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Dados Financeiros";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -820,187 +988,6 @@
             this.dtgProjetoPessoaBtnExcluir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dtgProjetoPessoaBtnExcluir.Width = 20;
             // 
-            // bsProjetoPessoa
-            // 
-            this.bsProjetoPessoa.DataSource = typeof(SP3Model.View.ProjetosPessoasInformacoesCompletas);
-            // 
-            // grbProjetosPessoasInformacoes
-            // 
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaObservacoes);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.label13);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.label12);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.dtpProjetoPessoaIngresso);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaOcupacao);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.label11);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaNome);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.btnProjetoPessoaLocalizar);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.label10);
-            this.grbProjetosPessoasInformacoes.Controls.Add(this.txtProjetoPessoaCodigo);
-            this.grbProjetosPessoasInformacoes.Location = new System.Drawing.Point(140, 6);
-            this.grbProjetosPessoasInformacoes.Name = "grbProjetosPessoasInformacoes";
-            this.grbProjetosPessoasInformacoes.Size = new System.Drawing.Size(852, 134);
-            this.grbProjetosPessoasInformacoes.TabIndex = 1;
-            this.grbProjetosPessoasInformacoes.TabStop = false;
-            this.grbProjetosPessoasInformacoes.Text = "Informações";
-            // 
-            // txtProjetoPessoaObservacoes
-            // 
-            this.txtProjetoPessoaObservacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProjetoPessoaObservacoes.Location = new System.Drawing.Point(105, 79);
-            this.txtProjetoPessoaObservacoes.Multiline = true;
-            this.txtProjetoPessoaObservacoes.Name = "txtProjetoPessoaObservacoes";
-            this.txtProjetoPessoaObservacoes.Size = new System.Drawing.Size(741, 49);
-            this.txtProjetoPessoaObservacoes.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 82);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 16);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Observações:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(613, 51);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 16);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Ingresso:";
-            // 
-            // dtpProjetoPessoaIngresso
-            // 
-            this.dtpProjetoPessoaIngresso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpProjetoPessoaIngresso.Location = new System.Drawing.Point(682, 48);
-            this.dtpProjetoPessoaIngresso.Name = "dtpProjetoPessoaIngresso";
-            this.dtpProjetoPessoaIngresso.Size = new System.Drawing.Size(164, 22);
-            this.dtpProjetoPessoaIngresso.TabIndex = 6;
-            // 
-            // txtProjetoPessoaOcupacao
-            // 
-            this.txtProjetoPessoaOcupacao.Location = new System.Drawing.Point(105, 50);
-            this.txtProjetoPessoaOcupacao.Name = "txtProjetoPessoaOcupacao";
-            this.txtProjetoPessoaOcupacao.Size = new System.Drawing.Size(502, 22);
-            this.txtProjetoPessoaOcupacao.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 53);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 16);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Ocupação:";
-            // 
-            // txtProjetoPessoaNome
-            // 
-            this.txtProjetoPessoaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProjetoPessoaNome.Location = new System.Drawing.Point(221, 21);
-            this.txtProjetoPessoaNome.Name = "txtProjetoPessoaNome";
-            this.txtProjetoPessoaNome.Size = new System.Drawing.Size(625, 22);
-            this.txtProjetoPessoaNome.TabIndex = 3;
-            // 
-            // btnProjetoPessoaLocalizar
-            // 
-            this.btnProjetoPessoaLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjetoPessoaLocalizar.Location = new System.Drawing.Point(180, 20);
-            this.btnProjetoPessoaLocalizar.Name = "btnProjetoPessoaLocalizar";
-            this.btnProjetoPessoaLocalizar.Size = new System.Drawing.Size(35, 23);
-            this.btnProjetoPessoaLocalizar.TabIndex = 2;
-            this.btnProjetoPessoaLocalizar.Text = "...";
-            this.btnProjetoPessoaLocalizar.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 16);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Código:";
-            // 
-            // txtProjetoPessoaCodigo
-            // 
-            this.txtProjetoPessoaCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProjetoPessoaCodigo.Location = new System.Drawing.Point(105, 20);
-            this.txtProjetoPessoaCodigo.Name = "txtProjetoPessoaCodigo";
-            this.txtProjetoPessoaCodigo.Size = new System.Drawing.Size(69, 22);
-            this.txtProjetoPessoaCodigo.TabIndex = 0;
-            // 
-            // grbProjetosPessoasAcoes
-            // 
-            this.grbProjetosPessoasAcoes.Controls.Add(this.btnProjetoPessoaExcluir);
-            this.grbProjetosPessoasAcoes.Controls.Add(this.btnProjetoPessoaAlterar);
-            this.grbProjetosPessoasAcoes.Controls.Add(this.btnPessoaProjetoIncluir);
-            this.grbProjetosPessoasAcoes.Location = new System.Drawing.Point(8, 6);
-            this.grbProjetosPessoasAcoes.Name = "grbProjetosPessoasAcoes";
-            this.grbProjetosPessoasAcoes.Size = new System.Drawing.Size(126, 112);
-            this.grbProjetosPessoasAcoes.TabIndex = 0;
-            this.grbProjetosPessoasAcoes.TabStop = false;
-            this.grbProjetosPessoasAcoes.Text = "Ações";
-            // 
-            // btnProjetoPessoaExcluir
-            // 
-            this.btnProjetoPessoaExcluir.Location = new System.Drawing.Point(6, 77);
-            this.btnProjetoPessoaExcluir.Name = "btnProjetoPessoaExcluir";
-            this.btnProjetoPessoaExcluir.Size = new System.Drawing.Size(114, 23);
-            this.btnProjetoPessoaExcluir.TabIndex = 2;
-            this.btnProjetoPessoaExcluir.Text = "Excluir";
-            this.btnProjetoPessoaExcluir.UseVisualStyleBackColor = true;
-            // 
-            // btnProjetoPessoaAlterar
-            // 
-            this.btnProjetoPessoaAlterar.Location = new System.Drawing.Point(6, 48);
-            this.btnProjetoPessoaAlterar.Name = "btnProjetoPessoaAlterar";
-            this.btnProjetoPessoaAlterar.Size = new System.Drawing.Size(114, 23);
-            this.btnProjetoPessoaAlterar.TabIndex = 1;
-            this.btnProjetoPessoaAlterar.Text = "Alterar";
-            this.btnProjetoPessoaAlterar.UseVisualStyleBackColor = true;
-            // 
-            // btnPessoaProjetoIncluir
-            // 
-            this.btnPessoaProjetoIncluir.Location = new System.Drawing.Point(6, 19);
-            this.btnPessoaProjetoIncluir.Name = "btnPessoaProjetoIncluir";
-            this.btnPessoaProjetoIncluir.Size = new System.Drawing.Size(114, 23);
-            this.btnPessoaProjetoIncluir.TabIndex = 0;
-            this.btnPessoaProjetoIncluir.Text = "Incluir";
-            this.btnPessoaProjetoIncluir.UseVisualStyleBackColor = true;
-            // 
-            // tbpReceitasVariaveis
-            // 
-            this.tbpReceitasVariaveis.Location = new System.Drawing.Point(4, 28);
-            this.tbpReceitasVariaveis.Name = "tbpReceitasVariaveis";
-            this.tbpReceitasVariaveis.Size = new System.Drawing.Size(1000, 512);
-            this.tbpReceitasVariaveis.TabIndex = 2;
-            this.tbpReceitasVariaveis.Text = "Receitas Variáveis";
-            this.tbpReceitasVariaveis.UseVisualStyleBackColor = true;
-            // 
-            // tbpReunioes
-            // 
-            this.tbpReunioes.Location = new System.Drawing.Point(4, 28);
-            this.tbpReunioes.Name = "tbpReunioes";
-            this.tbpReunioes.Size = new System.Drawing.Size(1000, 512);
-            this.tbpReunioes.TabIndex = 3;
-            this.tbpReunioes.Text = "Reuniões do Projeto";
-            this.tbpReunioes.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(199, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 22);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmCadastroProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1015,7 +1002,6 @@
             this.Name = "FrmCadastroProjeto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro - Projeto";
-            this.Load += new System.EventHandler(this.FrmCadastroProjeto_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -1025,14 +1011,14 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrevisaoConclusao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProjeto)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tbpPessoasProjetos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProjetoPessoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProjetoPessoa)).EndInit();
             this.grbProjetosPessoasInformacoes.ResumeLayout(false);
             this.grbProjetosPessoasInformacoes.PerformLayout();
             this.grbProjetosPessoasAcoes.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1110,6 +1096,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewImageColumn dtgProjetoPessoabtnEditar;
         private System.Windows.Forms.DataGridViewImageColumn dtgProjetoPessoaBtnExcluir;
-        private System.Windows.Forms.Button button1;
     }
 }
