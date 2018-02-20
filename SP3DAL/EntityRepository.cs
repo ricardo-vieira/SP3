@@ -15,62 +15,95 @@ using System.Data.Entity.Core.Objects;
 
 namespace SP3DAL
 {
+
     public class EntityRepository<T> : EntityContext, IDisposable
     where T : class, new()
     {
-        protected IList _bindingList;
+        private BindingList<T> _bindingList;
+        protected BindingListView<T> _bindingListResult;
         protected DbSet<T> _entityContext;
 
-        protected T _modifiedObject;
+        private T _modifiedObject;
         public T ModifiedObject { get => _modifiedObject; }
+
 
         public EntityRepository()
         {
-            PropertyInfo property = Context.GetType().GetProperty(typeof(T).Name, typeof(DbSet<T>));
-            _entityContext = (DbSet<T>)property.GetValue(Context);
-            _entityContext.Load();
-
-            _bindingList = _entityContext.Local.ToBindingList();
+            try
+            {
+                PropertyInfo property = Context.GetType().GetProperty(typeof(T).Name, typeof(DbSet<T>));
+                _entityContext = (DbSet<T>)property.GetValue(Context);
+                _entityContext.Load();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
 
+        /// <summary>
+        /// Executa uma listagem de todas as informações presentes na entitidade
+        /// </summary>
+        /// <returns>Retorna um bindingList para ser atribuído a um componente de visualização de dados</returns>
         public virtual IList GetList()
         {
-
-            if (_bindingList is null)
+            try
             {
-                BindingList<T> b = _entityContext.Local.ToBindingList();
-
-                if (b.GetType() == typeof(BindingList<T>))
+                if (_bindingList is null)
                 {
-                    (b as BindingList<T>).AllowEdit = false;
-                    (b as BindingList<T>).AllowNew = false;
-                    (b as BindingList<T>).AllowRemove = false;
+                     _bindingList = _entityContext.Local.ToBindingList();
+
+                    _bindingList.AllowEdit = false;
+                    _bindingList.AllowNew = false;
+                    _bindingList.AllowRemove = false;
+
+                    _bindingListResult = new BindingListView<T>(_bindingList);
                 }
 
-                _bindingList = new BindingListView<T>(b);
+                return _bindingList;
             }
-
-
-            return _bindingList;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
+        /// <summary>
+        /// Remove um objeto da entidade caso o mesmo exista na lista
+        /// </summary>
+        /// <param name="entity">Objeto a ser excluído</param>
+        /// <returns>Verdadeiro caso o mesmo exista na listagem</returns>
         public virtual bool Remove(T entity)
         {
-            if (_entityContext.Any(x => x.Equals(entity)))
+            try
             {
-                _entityContext.Remove(entity);
-                return true;
-            }
+                if (_bindingList.Any(x => x.Equals(entity)))
+                {
+                    _bindingList.AllowRemove = true;
+                    _bindingList.Remove(entity);
+                    return true;
+                }
 
-            return false;
+                _bindingList.AllowRemove = false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
+        /// <summary>
+        /// Adiciona um novo objeto a lista
+        /// </summary>
+        /// <param name="entity">Objeto a ser incluído.</param>
+        /// <returns>Verdadeiro caso o mesmo não exista na listagem</returns>
         public virtual bool Add(T entity)
         {
             try
             {
-                if (!_entityContext.AsEnumerable().Contains(entity) &&
+                if (!_bindingList.Contains(entity) &&
                         (!(entity is null) || Context.Entry(entity).State.Equals(EntityState.Unchanged)))
                 {
                     _modifiedObject = entity;
@@ -92,48 +125,45 @@ namespace SP3DAL
             }
         }
 
-        public virtual void ApplyFilter(Predicate<T> includeItem)
+        /// <summary>
+        /// Concluí as modificações feitas na entidade com esta instância de Repositorio
+        /// </summary>
+        /// <returns>Verdadeiro se as modificações forem bem sucedidas.</returns>
+        public bool Commit()
         {
-            //_bindingList.ApplyFilter(includeItem);
-        }
-
-        public virtual void RemoveFilter()
-        {
-            //_bindingList.RemoveFilter();
-        }
-
-        public virtual bool Commit()
-        {
-            if (!(_modifiedObject is null))
+            try
             {
+                if (!(_modifiedObject is null))
+                    GetList();
+
                 if (Context.Entry(_modifiedObject).State == EntityState.Added)
                 {
-                    _entityContext.Add(_modifiedObject);
+                    _bindingList.AllowNew = true;
+                    _bindingList.Add(_modifiedObject);
+                    _bindingList.AllowNew = false;
                 }
 
                 Context.SaveChanges();
                 Context.Entry(_modifiedObject).State = EntityState.Unchanged;
                 return true;
+
             }
-
-            return false;
-        }
-
-        public void Dispose()
-        {
-            if (Context != null)
+            catch (Exception ex)
             {
-                Context.Dispose();
+                throw ex;
             }
-
-            GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Realiza modificações no objeto informado.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public virtual bool Change(T entity)
         {
             try
             {
-                if (_entityContext.AsEnumerable().Any(x => x.Equals(entity)) &&
+                if (_bindingList.Any(x => x.Equals(entity)) &&
                         (!(entity is null) || Context.Entry(entity).State.Equals(EntityState.Unchanged)))
                 {
                     _modifiedObject = entity;
@@ -153,80 +183,167 @@ namespace SP3DAL
 
         }
 
+
+        public virtual void ApplyFilter(Predicate<T> predicate)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public virtual void RemoveFilter()
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void Dispose()
+        {
+            if (Context != null)
+            {
+                Context.Dispose();
+            }
+
+            GC.SuppressFinalize(this);
+        }
     }
 
-    public sealed class EntityRepository<T, TViewBinding> : EntityRepository<T>
+    public sealed class EntityRepository<T, TView> : EntityRepository<T>
     where T : class, new()
-    where TViewBinding : T, new()
+    where TView : T, new()
     {
         private BindingSource _bindingSourceObject;
         private BindingSource BindingSourceObject { get => _bindingSourceObject; }
 
+        private IList _bindingListView;
 
         public EntityRepository(BindingSource bindingSourceObject)
         {
             this._bindingSourceObject = bindingSourceObject;
-
-            GetList();
         }
 
-        public bool GetList(BindingSource bindingSourceObject)
+        public IList GetList(BindingSource bindingSourceObject)
         {
-            this._bindingSourceObject = bindingSourceObject;
-
-            //this._entityContext.Local.Select<T, TViewBinding>(x => { return PropertyCopier<T, TViewBinding>.CopyToNewInstance(x); }).ToList();
-
-            base._bindingList = new BindingListView<TViewBinding>(this._entityContext.Local.Select<T, TViewBinding>(x => { return PropertyCopier<T, TViewBinding>.CopyToNewInstanceChild(x); }).ToList());
-
-            if (!(this._bindingSourceObject is null))
-                this._bindingSourceObject.DataSource = base._bindingList;
-
-
-            return true;
+            try
+            {
+                this._bindingSourceObject = bindingSourceObject;
+                return GetList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override IList GetList()
         {
-            this.GetList(_bindingSourceObject);
-            return base._bindingList;
+            try
+            {
+                //bindingListView = new BindingListView<TView>(this._entityContext.Local.Select<T, TViewBinding>(x => { return PropertyCopier<T, TViewBinding>.CopyToNewInstanceChild(x); }).ToList());
+                this._bindingListView = new BindingListView<TView>(base._bindingListResult.Select<T, TView>(x => { return PropertyCopier<T, TView>.CopyToNewInstanceChild(x); }).ToList());
+
+                if (!(this._bindingSourceObject is null))
+                    this._bindingSourceObject.DataSource = this._bindingListView;
+
+                return this._bindingListView;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override bool Add(T entity)
         {
-            T entityOriginalType = PropertyCopier<T, TViewBinding>.CopyToNewInstanceParent((TViewBinding)entity);
-            if (base.Add(entityOriginalType))
+            try
             {
-                GetList();
-                return true;
-            }
+                if (base.Add(ConvertChildToParent(entity)))
+                {
+                    GetList();
+                    return true;
+                }
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override bool Remove(T entity)
         {
-            T entityOriginalType = PropertyCopier<T, TViewBinding>.CopyToNewInstanceParent((TViewBinding)entity);
-            if (base.Remove(entityOriginalType))
+            try
             {
-                GetList();
-                return true;
-            }
+                if (base.Remove(ConvertChildToParent(entity)))
+                {
+                    GetList();
+                    return true;
+                }
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override bool Change(T entity)
         {
-            T entityOriginalType = PropertyCopier<T, TViewBinding>.CopyToNewInstanceParent((TViewBinding)entity);
-
-            if (base.Change(entityOriginalType))
+            try
             {
-                return true;
+
+                if (base.Change(ConvertChildToParent(entity)))
+                {
+                    return true;
+                }
+
+                return false;
             }
-
-
-            return false;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
+        /// <summary>
+        /// Converte um objeto herdado para o tipo original
+        /// </summary>
+        /// <param name="entity">child object </param>
+        /// <returns>parentObject</returns>
+        private T ConvertChildToParent(T entity)
+        {
+            try
+            {
+                T entityOriginalType;
+
+                if (entity.GetType() == typeof(T))
+                    entityOriginalType = entity;
+                else
+                    entityOriginalType = PropertyCopier<T, TView>.CopyToNewInstanceParent((TView)entity);
+
+                return entityOriginalType;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 
     public class EntityDetailRepository<T, TMaster> : EntityRepository<T>
@@ -234,6 +351,8 @@ namespace SP3DAL
     where TMaster : class, new()
     {
         protected IList<T> _detailEntityContext;
+        private PropertyInfo propertyDetailObject;
+
         protected TMaster masterObject;
 
         /// <summary>
@@ -253,7 +372,7 @@ namespace SP3DAL
             }
         }
 
-        protected void InitializeMasterDetailEntity(object masterObject, PropertyInfo propertyDetailObject = null)
+        private void InitializeMasterDetailEntity(object masterObject, PropertyInfo propertyDetailObject = null)
         {
             try
             {
@@ -292,32 +411,46 @@ namespace SP3DAL
                         throw new Exception("Foram encontrados mais de uma propriedade no objecto masterObject que correspondem a uma lista de objectos da classe T (" + typeof(List<T>).ToString() + "\"). Caso necessário, especifique exatamente o nome da propriedade do objeto masterObject que corresponda a lista de objetos da classe T." +
                                             "\nProperties:\n" + propertiesFinderMasterObject.ToString());
                     }
+                    this.propertyDetailObject = propertyDetailObject;
 
-                    propertyDetailObject = this.masterObject.GetType().GetProperties().First(x => x.PropertyType.GetInterfaces().Contains(typeof(IList<T>)));
+                    this.propertyDetailObject = this.masterObject.GetType().GetProperties().First(x => x.PropertyType.GetInterfaces().Contains(typeof(IList<T>)));
                 }
 
                 else
                 {
-                    if (propertyDetailObject.PropertyType.GetInterfaces().Contains(typeof(IList<T>)))
+                    if (this.propertyDetailObject.PropertyType.GetInterfaces().Contains(typeof(IList<T>)))
                         throw new Exception("A propriedade indicada em propertyMasterObject não corresponde a uma lista do objeto T");
 
-                    if (!this.masterObject.GetType().GetRuntimeProperties().Any(x => x.PropertyType.IsEquivalentTo(propertyDetailObject.PropertyType)))
+                    if (!this.masterObject.GetType().GetRuntimeProperties().Any(x => x.PropertyType.IsEquivalentTo(this.propertyDetailObject.PropertyType)))
                         throw new Exception("Não foi encontrado nenhuma propriedade no objecto masterObject que corresponda ao tipo indicado em propertyMasterObject");
                 }
 
-
-
-
                 this._detailEntityContext = (IList<T>)propertyDetailObject.GetValue(this.masterObject);
 
+                if (this._detailEntityContext.GetType().BaseType.Equals(typeof(ObservableCollection<T>)))
+                    _bindingListResult = new BindingListView<T>((propertyDetailObject.GetValue(this.masterObject) as ObservableCollection<T>).ToBindingList());
+                else
+                    _bindingListResult = new BindingListView<T>(this._detailEntityContext.ToList());
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        public  override IList GetList()
+        {
+            try
+            {
+                this._detailEntityContext = (IList<T>)propertyDetailObject.GetValue(this.masterObject);
 
                 if (this._detailEntityContext.GetType().BaseType.Equals(typeof(ObservableCollection<T>)))
-                    _bindingList = (propertyDetailObject.GetValue(this.masterObject) as ObservableCollection<T>).ToBindingList();
+                    base._bindingListResult = new BindingListView<T>((propertyDetailObject.GetValue(this.masterObject) as ObservableCollection<T>).ToBindingList());
                 else
-                    _bindingList = new BindingList<T>(this._detailEntityContext.ToList());
+                    base._bindingListResult = new BindingListView<T>(this._detailEntityContext.ToList());
 
+                return base._bindingListResult;
             }
             catch (Exception ex)
             {
@@ -329,21 +462,15 @@ namespace SP3DAL
         {
             try
             {
-                if (!_detailEntityContext.AsEnumerable().Contains(entity) &&
-                        (!(entity is null) || Context.Entry(entity).State.Equals(EntityState.Unchanged)))
+                if (!(entity is null))
                 {
-                    _modifiedObject = entity;
+                    if (getValueMasterObject(entity) is null)
+                        setValueMasterObject(entity, masterObject);
 
-                    Context.Entry(entity).State = EntityState.Added;
-                    return true;
+                    return base.Add(entity);
                 }
-                else
-                {
-                    throw new Exception("Já existe um objeto do tipo " + typeof(T).ToString() + " sendo modificado." +
-                                        "Informações: " +
-                                        "\n-Object: " + entity.ToString() +
-                                        "\n-EntityState: " + Context.Entry(entity).State.ToString());
-                }
+
+                return false;
             }
             catch (Exception ex)
             {
@@ -351,127 +478,166 @@ namespace SP3DAL
             }
         }
 
-        public override bool Remove(T entity)
-        {
-            if (_detailEntityContext.Any(x => x.Equals(entity)))
-            {
-                _detailEntityContext.Remove(entity);
-                return true;
-            }
-
-            return false;
-        }
-
-        public override bool Change(T entity)
+        private TMaster getValueMasterObject(T entity)
         {
             try
             {
-                if (_detailEntityContext.AsEnumerable().Any(x => x.Equals(entity)) &&
-                        (!(entity is null) || Context.Entry(entity).State.Equals(EntityState.Unchanged)))
-                {
-                    _modifiedObject = entity;
-                    Context.Entry(entity).State = EntityState.Modified;
-                    return true;
-                }
-                else
-                    throw new Exception("Já existe um objeto do tipo " + typeof(T).ToString() + " sendo modificado." +
-                    "Informações: " +
-                    "\n-Object: " + entity.ToString() +
-                    "\n-EntityState: " + Context.Entry(entity).State.ToString());
+                PropertyInfo propertyMasterValue = entity.GetType().GetProperties().First(x => x.GetType() == typeof(TMaster));
+
+                if (propertyMasterValue is null)
+                    throw new Exception("Não foi encontrado a propriedade correspondente a informação do registro pai no objeto.");
+
+                return (TMaster) propertyMasterValue.GetValue(entity);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
 
-        public override bool Commit()
+        private bool setValueMasterObject(T entity, TMaster masterEntity)
         {
-            if (!(_modifiedObject is null))
+            try
             {
-                if (Context.Entry(_modifiedObject).State == EntityState.Added)
-                {
-                    _detailEntityContext.Add(_modifiedObject);
-                }
+                PropertyInfo propertyMasterValue = entity.GetType().GetProperties().First(x => x.GetType() == typeof(TMaster));
 
-                //Context.SaveChanges();
-                //Context.Entry(_modifiedObject).State = EntityState.Unchanged;
+                if (propertyMasterValue is null)
+                    throw new Exception("Não foi encontrado a propriedade correspondente a informação do registro pai no objeto.");
+
+                propertyMasterValue.SetValue(masterObject, masterEntity);
                 return true;
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 
-    public sealed class EntityDetailRepository<T, TMaster, TViewBinding> : EntityDetailRepository<T, TMaster>
+    public sealed class EntityDetailRepository<T, TMaster, TView> : EntityDetailRepository<T, TMaster>
     where T : class, new()
     where TMaster : class, new()
-    where TViewBinding : T, new()
+    where TView : T, new()
     {
         private BindingSource _bindingSourceObject;
         private BindingSource BindingSourceObject { get => _bindingSourceObject; }
 
-        public EntityDetailRepository(BindingSource bindingSourceObject, object masterObject, PropertyInfo propertyDetailObject = null) : base(masterObject, propertyDetailObject)
+        private IList _bindingListView;
+
+        public EntityDetailRepository(object masterObject, PropertyInfo propertyDetailObject = null) : base(masterObject, propertyDetailObject)
         {
-            this._bindingSourceObject = bindingSourceObject;        
-            GetList();
         }
 
-        public bool GetList(BindingSource bindingSourceObject)
+        public IList GetList(BindingSource bindingSourceObject)
         {
-            this._bindingSourceObject = bindingSourceObject;
-
-            //this._entityContext.Local.Select<T, TViewBinding>(x => { return PropertyCopier<T, TViewBinding>.CopyToNewInstance(x); }).ToList();
-
-            base._bindingList = new BindingListView<TViewBinding>(this._detailEntityContext.Select<T, TViewBinding>(x => { return PropertyCopier<T, TViewBinding>.CopyToNewInstanceChild(x); }).ToList());
-
-            if (!(this._bindingSourceObject is null))
-                this._bindingSourceObject.DataSource = base._bindingList;
-
-            return true;
+            try
+            {
+                this._bindingSourceObject = bindingSourceObject;
+                return GetList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override IList GetList()
         {
-            this.GetList(_bindingSourceObject);
-            return base._bindingList;
+            try
+            {
+                base.GetList();
+
+                //bindingListView = new BindingListView<TView>(this._entityContext.Local.Select<T, TViewBinding>(x => { return PropertyCopier<T, TViewBinding>.CopyToNewInstanceChild(x); }).ToList());
+                this._bindingListView = new BindingListView<TView>(base._bindingListResult.Select<T, TView>(x => { return PropertyCopier<T, TView>.CopyToNewInstanceChild(x); }).ToList());
+
+                if (!(this._bindingSourceObject is null))
+                    this._bindingSourceObject.DataSource = this._bindingListView;
+
+                return this._bindingListView;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override bool Add(T entity)
         {
-            T entityOriginalType = PropertyCopier<T, TViewBinding>.CopyToNewInstanceParent((TViewBinding)entity);
-            if (base.Add(entityOriginalType))
+            try
             {
-                GetList();
-                return true;
-            }
+                if (base.Add(ConvertChildToParent(entity)))
+                {
+                    GetList();
+                    return true;
+                }
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override bool Remove(T entity)
         {
-            T entityOriginalType = PropertyCopier<T, TViewBinding>.CopyToNewInstanceParent((TViewBinding)entity);
-            if (base.Remove(entityOriginalType))
+            try
             {
-                GetList();
-                return true;
-            }
+                if (base.Remove(ConvertChildToParent(entity)))
+                {
+                    GetList();
+                    return true;
+                }
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override bool Change(T entity)
         {
-            T entityOriginalType = PropertyCopier<T, TViewBinding>.CopyToNewInstanceParent((TViewBinding)entity);
-
-            if (base.Change(entityOriginalType))
+            try
             {
-                return true;
-            }
 
-            return false;
+                if (base.Change(ConvertChildToParent(entity)))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Converte um objeto herdado para o tipo original
+        /// </summary>
+        /// <param name="entity">child object </param>
+        /// <returns>parentObject</returns>
+        private T ConvertChildToParent(T entity)
+        {
+            try
+            {
+                T entityOriginalType;
+
+                if (entity.GetType() == typeof(T))
+                    entityOriginalType = entity;
+                else
+                    entityOriginalType = PropertyCopier<T, TView>.CopyToNewInstanceParent((TView)entity);
+
+                return entityOriginalType;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
